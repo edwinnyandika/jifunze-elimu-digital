@@ -3,267 +3,390 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Elimu Digital — CBC Learning Platform</title>
+<title>Soma — AI-Powered CBC Learning for Kenya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --green:#0D6E4F;
-  --green-light:#1D9E75;
-  --green-pale:#E1F5EE;
-  --green-mid:#5DCAA5;
-  --amber:#D97706;
-  --amber-pale:#FEF3C7;
-  --red:#DC2626;
-  --red-pale:#FEE2E2;
-  --blue:#1E40AF;
-  --blue-pale:#EFF6FF;
-  --ink:#0F1A14;
-  --ink-mid:#2D4A3A;
-  --ink-light:#5C7A6A;
-  --ghost:#8FAF9A;
-  --surface:#F7FAF8;
+  --sage:#1B4332;
+  --sage-mid:#2D6A4F;
+  --sage-soft:#40916C;
+  --mint:#74C69D;
+  --mint-pale:#D8F3DC;
+  --gold:#F4A261;
+  --gold-pale:#FFF3E4;
+  --red:#E63946;
+  --red-pale:#FDECEA;
+  --blue:#1D3557;
+  --blue-pale:#EAF2FF;
+  --ink:#0D1B12;
+  --ink-mid:#2C4A38;
+  --ink-soft:#5A7A68;
+  --ghost:#95A89F;
+  --surface:#F4F8F5;
   --white:#FFFFFF;
-  --border:#D1E5D9;
-  --font-display:'Syne',sans-serif;
-  --font-body:'DM Sans',sans-serif;
-  --radius:12px;
-  --radius-lg:20px;
-  --radius-xl:32px;
-  --shadow:0 1px 3px rgba(15,26,20,0.08),0 4px 16px rgba(15,26,20,0.06);
-  --shadow-lg:0 8px 40px rgba(15,26,20,0.12);
+  --border:#C8DDD1;
+  --font-head:'Space Grotesk',sans-serif;
+  --font-serif:'Instrument Serif',serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --radius:10px;
+  --radius-lg:18px;
+  --radius-xl:28px;
+  --shadow:0 1px 4px rgba(13,27,18,0.07),0 4px 20px rgba(13,27,18,0.05);
+  --shadow-lg:0 12px 48px rgba(13,27,18,0.14);
+  --shadow-pop:0 20px 60px rgba(13,27,18,0.18);
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-body);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
-h1,h2,h3,h4{font-family:var(--font-display);line-height:1.2}
+body{font-family:var(--font-head);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--surface)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--green);text-decoration:none;display:flex;align-items:center;gap:8px}
-.nav-logo span{display:inline-block;width:28px;height:28px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:14px}
-.nav-links{display:flex;align-items:center;gap:2rem}
-.nav-links a{color:var(--ink-mid);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s}
-.nav-links a:hover{color:var(--green)}
-.nav-cta{display:flex;gap:10px}
-.btn-outline{padding:8px 18px;border:1.5px solid var(--green);border-radius:100px;color:var(--green);font-size:14px;font-weight:500;cursor:pointer;background:transparent;font-family:var(--font-body);transition:all 0.2s;text-decoration:none}
-.btn-outline:hover{background:var(--green-pale)}
-.btn-solid{padding:8px 18px;border:none;border-radius:100px;color:white;font-size:14px;font-weight:500;cursor:pointer;background:var(--green);font-family:var(--font-body);transition:all 0.2s;text-decoration:none}
-.btn-solid:hover{background:var(--green-light);transform:translateY(-1px)}
-.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 1.5rem}
+.nav-logo{font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--sage);text-decoration:none;display:flex;align-items:center;gap:9px;letter-spacing:-0.5px}
+.logo-mark{width:32px;height:32px;background:var(--sage);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--mint);font-size:15px;font-weight:700;letter-spacing:-1px}
+.nav-links{display:flex;align-items:center;gap:1.75rem}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500;cursor:pointer;transition:color 0.2s;letter-spacing:-0.1px}
+.nav-links a:hover{color:var(--sage)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.btn-ghost{padding:7px 16px;border:1.5px solid var(--border);border-radius:100px;background:transparent;color:var(--ink-mid);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-head);transition:all 0.2s}
+.btn-ghost:hover{border-color:var(--sage);color:var(--sage)}
+.btn-primary{padding:8px 18px;border:none;border-radius:100px;background:var(--sage);color:white;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-head);transition:all 0.2s;letter-spacing:-0.1px}
+.btn-primary:hover{background:var(--sage-mid);transform:translateY(-1px);box-shadow:0 4px 16px rgba(27,67,50,0.3)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s}
 
-/* ── PAGE SHELL ── */
-.page{display:none;min-height:100vh;padding-top:64px}
+/* ── PAGES ── */
+.page{display:none;min-height:100vh;padding-top:60px}
 .page.active{display:block}
 
-/* ── HERO ── */
-.hero{background:var(--ink);position:relative;overflow:hidden;padding:80px 2rem 100px}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px}
-.hero-glow{position:absolute;top:-100px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(29,158,117,0.25) 0%,transparent 70%);pointer-events:none}
-.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,0.15);border:1px solid rgba(93,202,165,0.3);border-radius:100px;padding:6px 16px;margin-bottom:2rem}
-.hero-badge-dot{width:7px;height:7px;background:var(--green-mid);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.85)}}
-.hero-badge span{font-size:13px;color:var(--green-mid);font-weight:500}
-.hero h1{font-size:clamp(40px,6vw,80px);color:white;font-weight:800;max-width:700px;margin-bottom:1.5rem;letter-spacing:-1px}
-.hero h1 em{font-style:normal;color:var(--green-mid)}
-.hero p{font-size:18px;color:rgba(255,255,255,0.65);max-width:520px;margin-bottom:2.5rem;font-weight:300}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-.hero-btn-main{padding:14px 32px;background:var(--green-light);color:white;border:none;border-radius:100px;font-size:16px;font-weight:600;cursor:pointer;font-family:var(--font-display);transition:all 0.25s;letter-spacing:0.3px}
-.hero-btn-main:hover{background:var(--green-mid);transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,0.4)}
-.hero-btn-sec{padding:14px 32px;border:1.5px solid rgba(255,255,255,0.25);color:white;border-radius:100px;font-size:16px;font-weight:500;cursor:pointer;font-family:var(--font-body);background:transparent;transition:all 0.25s}
-.hero-btn-sec:hover{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.05)}
-.hero-stats{display:flex;gap:3rem;margin-top:4rem;flex-wrap:wrap}
-.hero-stat-num{font-family:var(--font-display);font-size:36px;font-weight:800;color:white}
-.hero-stat-lbl{font-size:13px;color:rgba(255,255,255,0.5);margin-top:2px}
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero{background:var(--ink);min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:80px 1.5rem;position:relative;overflow:hidden}
+.hero-noise{position:absolute;inset:0;opacity:0.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none}
+.hero-orb-1{width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(64,145,108,0.18) 0%,transparent 65%)}
+.hero-orb-2{width:500px;height:500px;bottom:-100px;left:-100px;background:radial-gradient(circle,rgba(116,198,157,0.1) 0%,transparent 65%)}
+.hero-inner{max-width:1280px;margin:0 auto;width:100%;position:relative;z-index:2}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:28px;padding:6px 14px;background:rgba(116,198,157,0.12);border:1px solid rgba(116,198,157,0.25);border-radius:100px}
+.eyebrow-dot{width:6px;height:6px;background:var(--mint);border-radius:50%;animation:breathe 2.5s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+.eyebrow-text{font-size:12px;font-weight:600;color:var(--mint);letter-spacing:0.5px}
+.hero-title{font-family:var(--font-serif);font-size:clamp(44px,7vw,96px);color:white;line-height:1.05;letter-spacing:-2px;margin-bottom:24px}
+.hero-title em{font-style:italic;color:var(--mint)}
+.hero-title .small-word{font-family:var(--font-head);font-size:clamp(22px,3.5vw,48px);font-style:normal;font-weight:500;color:rgba(255,255,255,0.5)}
+.hero-sub{font-size:clamp(15px,1.8vw,19px);color:rgba(255,255,255,0.5);max-width:500px;margin-bottom:36px;font-weight:400;line-height:1.7}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:60px}
+.hero-cta{padding:14px 30px;border:none;border-radius:100px;background:var(--mint);color:var(--sage);font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font-head);transition:all 0.25s;letter-spacing:-0.2px}
+.hero-cta:hover{background:white;transform:translateY(-2px);box-shadow:0 8px 28px rgba(116,198,157,0.3)}
+.hero-sec{padding:14px 30px;border:1.5px solid rgba(255,255,255,0.15);border-radius:100px;background:transparent;color:rgba(255,255,255,0.7);font-size:15px;font-weight:500;cursor:pointer;font-family:var(--font-head);transition:all 0.25s}
+.hero-sec:hover{border-color:rgba(255,255,255,0.4);color:white}
+.hero-stats{display:flex;gap:3.5rem;flex-wrap:wrap}
+.hero-stat{border-left:2px solid rgba(255,255,255,0.1);padding-left:1.5rem}
+.hero-stat-num{font-family:var(--font-mono);font-size:32px;font-weight:500;color:white;letter-spacing:-1px}
+.hero-stat-lbl{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.5px;margin-top:2px}
+.hero-floating{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:380px;display:none}
+@media(min-width:1100px){.hero-floating{display:block}}
+.hero-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:20px;backdrop-filter:blur(10px);margin-bottom:12px;animation:floatUp 6s ease-in-out infinite}
+.hero-card:nth-child(2){animation-delay:2s}
+.hero-card:nth-child(3){animation-delay:4s}
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hc-label{font-size:11px;color:var(--mint);font-weight:600;letter-spacing:1px;margin-bottom:8px}
+.hc-content{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.5}
+.hc-score{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-family:var(--font-mono);font-size:12px;color:var(--mint)}
 
-/* ── SECTIONS ── */
-.section{padding:80px 2rem}
-.section-inner{max-width:1200px;margin:0 auto}
-.section-tag{font-size:12px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
-.section-title{font-size:clamp(28px,4vw,48px);font-weight:700;color:var(--ink);margin-bottom:1rem;letter-spacing:-0.5px}
-.section-sub{font-size:17px;color:var(--ink-light);max-width:520px;font-weight:300}
+/* ══════════════════════════════
+   SECTIONS
+══════════════════════════════ */
+.section{padding:88px 1.5rem}
+.section-inner{max-width:1280px;margin:0 auto}
+.section-label{font-size:11px;font-weight:700;color:var(--sage-soft);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.section-title{font-family:var(--font-serif);font-size:clamp(28px,4vw,52px);color:var(--ink);margin-bottom:14px;line-height:1.15;letter-spacing:-1px}
+.section-title em{font-style:italic;color:var(--sage-soft)}
+.section-sub{font-size:16px;color:var(--ink-soft);max-width:500px;font-weight:400;line-height:1.7}
 
-/* ── FEATURES ── */
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
-.feature-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;transition:all 0.25s;position:relative;overflow:hidden}
-.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green-light);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
-.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--green-mid)}
-.feature-card:hover::before{transform:scaleX(1)}
-.feature-icon{width:48px;height:48px;border-radius:14px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1.25rem}
-.feature-title{font-family:var(--font-display);font-size:18px;font-weight:600;margin-bottom:8px;color:var(--ink)}
-.feature-desc{font-size:14px;color:var(--ink-light);line-height:1.7}
+/* ══════════════════════════════
+   FEATURES
+══════════════════════════════ */
+.features-bento{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:1.25rem;margin-top:3.5rem}
+.bento-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;transition:all 0.25s;position:relative;overflow:hidden}
+.bento-card:hover{border-color:var(--mint);box-shadow:var(--shadow);transform:translateY(-3px)}
+.bento-card.tall{grid-row:span 2}
+.bento-card.wide{grid-column:span 2}
+.bento-card.dark{background:var(--sage);border-color:var(--sage-mid);color:white}
+.bento-card.dark .bento-title{color:white}
+.bento-card.dark .bento-desc{color:rgba(255,255,255,0.6)}
+.bento-icon{width:44px;height:44px;border-radius:12px;background:var(--mint-pale);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:1.25rem;flex-shrink:0}
+.bento-card.dark .bento-icon{background:rgba(255,255,255,0.1)}
+.bento-title{font-family:var(--font-head);font-size:17px;font-weight:600;margin-bottom:8px;color:var(--ink);letter-spacing:-0.3px}
+.bento-desc{font-size:13px;color:var(--ink-soft);line-height:1.65}
+.bento-pill{display:inline-block;padding:4px 12px;background:var(--mint-pale);border-radius:100px;font-size:11px;font-weight:600;color:var(--sage-soft);margin-top:14px}
+.bento-card.dark .bento-pill{background:rgba(255,255,255,0.1);color:var(--mint)}
+.ai-preview{margin-top:1.5rem;background:rgba(0,0,0,0.3);border-radius:12px;padding:14px;font-family:var(--font-mono);font-size:12px;line-height:1.8}
+.ai-line{color:rgba(255,255,255,0.5)}
+.ai-line span{color:var(--mint)}
+.ai-cursor{display:inline-block;width:6px;height:13px;background:var(--mint);border-radius:2px;animation:blink 1.2s step-end infinite;vertical-align:middle}
+@keyframes blink{50%{opacity:0}}
 
-/* ── SUBJECTS ── */
-.subjects-section{background:var(--surface)}
-.subjects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:3rem}
-.subject-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;text-align:center;cursor:pointer;transition:all 0.2s}
-.subject-card:hover,.subject-card.active{border-color:var(--green-light);background:var(--green-pale);transform:translateY(-2px)}
-.subject-emoji{font-size:36px;margin-bottom:12px;display:block}
-.subject-name{font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--ink)}
-.subject-count{font-size:12px;color:var(--ghost);margin-top:4px}
+/* ══════════════════════════════
+   SUBJECTS
+══════════════════════════════ */
+.subjects-section{background:linear-gradient(180deg,var(--surface) 0%,var(--white) 100%)}
+.subjects-scroll{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
+.subj-chip{display:flex;align-items:center;gap:10px;padding:12px 20px;border:1.5px solid var(--border);border-radius:100px;cursor:pointer;transition:all 0.2s;background:var(--white);font-size:14px;font-weight:500;color:var(--ink-mid)}
+.subj-chip:hover,.subj-chip.active{border-color:var(--sage);background:var(--sage);color:white}
+.subj-chip .emoji{font-size:18px}
+.subj-chip .count{font-size:11px;font-family:var(--font-mono);opacity:0.6;margin-left:4px}
+.grade-tabs{display:flex;gap:8px;margin:2.5rem 0 1.5rem}
+.grade-tab{padding:8px 22px;border-radius:100px;border:1.5px solid var(--border);font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer;transition:all 0.2s;font-family:var(--font-head)}
+.grade-tab.active{background:var(--ink);color:white;border-color:var(--ink)}
+.topics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.topic-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:flex-start;gap:14px}
+.topic-card:hover{border-color:var(--sage-soft);box-shadow:var(--shadow);transform:translateX(4px)}
+.topic-card.done{border-color:var(--mint);background:var(--mint-pale)}
+.topic-num{font-family:var(--font-mono);font-size:11px;color:var(--ghost);margin-top:3px;flex-shrink:0;width:24px}
+.topic-card-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px;letter-spacing:-0.2px}
+.topic-card-sub{font-size:12px;color:var(--ghost);line-height:1.5}
+.topic-badge-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.topic-badge{font-size:10px;padding:3px 9px;border-radius:100px;font-weight:600;letter-spacing:0.2px}
+.badge-g7{background:var(--blue-pale);color:var(--blue)}
+.badge-g8{background:var(--gold-pale);color:#9a5a00}
+.badge-g9{background:var(--red-pale);color:var(--red)}
+.badge-done{background:var(--mint-pale);color:var(--sage)}
 
-/* ── GRADE SECTION ── */
-.grade-pills{display:flex;gap:10px;margin:2rem 0 1.5rem;flex-wrap:wrap}
-.grade-pill{padding:8px 20px;border-radius:100px;border:1.5px solid var(--border);font-size:14px;font-weight:500;color:var(--ink-light);cursor:pointer;transition:all 0.2s;font-family:var(--font-body)}
-.grade-pill.active{background:var(--ink);color:white;border-color:var(--ink)}
-.topics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
-.topic-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;cursor:pointer;transition:all 0.2s;display:flex;justify-content:space-between;align-items:flex-start}
-.topic-card:hover{border-color:var(--green-light);box-shadow:var(--shadow)}
-.topic-card.done{border-color:var(--green-mid);background:var(--green-pale)}
-.topic-card-title{font-weight:600;font-size:15px;color:var(--ink);margin-bottom:4px}
-.topic-card-sub{font-size:13px;color:var(--ghost)}
-.topic-grade-badge{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600;flex-shrink:0;margin-left:10px}
-.g7{background:var(--blue-pale);color:var(--blue)}
-.g8{background:var(--amber-pale);color:var(--amber)}
-.g9{background:var(--red-pale);color:var(--red)}
-
-/* ── LESSON VIEW ── */
-.lesson-layout{display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 64px)}
-.lesson-sidebar{background:var(--surface);border-right:1px solid var(--border);padding:1.5rem;overflow-y:auto;position:sticky;top:64px;height:calc(100vh - 64px)}
-.lesson-sidebar h3{font-size:13px;font-weight:600;color:var(--ghost);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem}
-.sidebar-item{padding:10px 12px;border-radius:var(--radius);font-size:14px;cursor:pointer;color:var(--ink-mid);transition:all 0.15s;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
-.sidebar-item:hover{background:var(--white);color:var(--ink)}
-.sidebar-item.active{background:var(--white);color:var(--green);font-weight:500;border:1px solid var(--border)}
-.sidebar-item.done::after{content:'✓';color:var(--green);font-size:12px}
-.lesson-main{padding:3rem;max-width:760px}
-.lesson-header{margin-bottom:2rem}
-.lesson-back{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--ghost);cursor:pointer;margin-bottom:1.5rem;transition:color 0.2s}
+/* ══════════════════════════════
+   LESSON VIEW
+══════════════════════════════ */
+#lesson-view{display:none}
+.lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 60px)}
+.lesson-sidebar{background:var(--surface);border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto}
+.sidebar-header{font-size:10px;font-weight:700;color:var(--ghost);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.sb-item{padding:9px 12px;border-radius:9px;font-size:13px;cursor:pointer;color:var(--ink-mid);transition:all 0.15s;margin-bottom:3px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sb-item:hover{background:var(--white)}
+.sb-item.active{background:var(--white);color:var(--sage);font-weight:600;border:1px solid var(--border)}
+.sb-item-check{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;transition:all 0.2s}
+.sb-item.done .sb-item-check{background:var(--mint);border-color:var(--mint);color:white}
+.lesson-main{padding:2.5rem 3rem;max-width:820px}
+.lesson-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ghost);cursor:pointer;margin-bottom:1.75rem;transition:color 0.2s;font-weight:500}
 .lesson-back:hover{color:var(--ink)}
-.lesson-title{font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--ink);margin-bottom:0.75rem}
-.lesson-meta{display:flex;gap:10px;align-items:center}
-.lesson-body{font-size:16px;line-height:1.8;color:var(--ink-mid)}
-.lesson-body p{margin-bottom:1rem}
-.callout{background:var(--green-pale);border-left:4px solid var(--green-light);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:15px}
-.callout strong{color:var(--green);font-family:var(--font-display)}
+.lesson-subject-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--sage-soft);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
+.lesson-title{font-family:var(--font-serif);font-size:clamp(26px,3.5vw,42px);color:var(--ink);margin-bottom:20px;letter-spacing:-1px;line-height:1.2}
+.lesson-meta-row{display:flex;gap:10px;align-items:center;margin-bottom:2rem;flex-wrap:wrap}
+.meta-pill{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid var(--border);color:var(--ink-soft)}
+.lesson-summary{font-size:16px;color:var(--ink-mid);line-height:1.8;margin-bottom:1.5rem}
+.lesson-content-body{font-size:15px;line-height:1.85;color:var(--ink-mid)}
+.lesson-content-body p{margin-bottom:1rem}
+.example-block{background:var(--ink);border-radius:var(--radius-lg);padding:1.5rem;margin:1.75rem 0;position:relative;overflow:hidden}
+.example-block::before{content:'EXAMPLE';position:absolute;top:12px;right:16px;font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:2px}
+.example-label{font-size:11px;font-weight:700;color:var(--mint);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.example-text{font-size:14px;color:rgba(255,255,255,0.8);font-family:var(--font-mono);line-height:1.7}
+.section-divider{border:none;height:1px;background:var(--border);margin:2rem 0}
 
-/* ── QUIZ ── */
-.quiz-section{margin-top:2.5rem;border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;background:var(--surface)}
-.quiz-section h3{font-family:var(--font-display);font-size:20px;font-weight:600;margin-bottom:1.5rem}
-.quiz-q-text{font-size:16px;font-weight:500;margin-bottom:1.25rem;color:var(--ink)}
-.quiz-options{display:grid;gap:10px}
-.quiz-opt-btn{padding:14px 18px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:15px;text-align:left;cursor:pointer;background:var(--white);color:var(--ink);font-family:var(--font-body);transition:all 0.2s}
-.quiz-opt-btn:hover:not(:disabled){border-color:var(--green-mid);background:var(--green-pale)}
-.quiz-opt-btn.correct{border-color:var(--green-light);background:var(--green-pale);color:var(--green)}
-.quiz-opt-btn.wrong{border-color:var(--red);background:var(--red-pale);color:var(--red)}
-.quiz-result{padding:12px 16px;border-radius:var(--radius);margin-top:1rem;font-size:15px;font-weight:500}
-.quiz-result.pass{background:var(--green-pale);color:var(--green)}
-.quiz-result.fail{background:var(--red-pale);color:var(--red)}
-.mark-done-btn{margin-top:1.5rem;padding:14px 28px;background:var(--green);color:white;border:none;border-radius:100px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-display);transition:all 0.2s;width:100%}
-.mark-done-btn:hover{background:var(--green-light);transform:translateY(-1px)}
+/* ══════════════════════════════
+   QUIZ
+══════════════════════════════ */
+.quiz-block{margin-top:2rem;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden}
+.quiz-header{background:var(--ink);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:10px}
+.quiz-header-icon{font-size:18px}
+.quiz-header-title{font-family:var(--font-head);font-size:15px;font-weight:600;color:white}
+.quiz-header-sub{font-size:12px;color:rgba(255,255,255,0.4);margin-left:auto}
+.quiz-body{padding:1.75rem}
+.quiz-question{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:1.25rem;letter-spacing:-0.2px}
+.quiz-options{display:grid;gap:9px}
+.quiz-btn{padding:13px 18px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:14px;text-align:left;cursor:pointer;background:var(--white);color:var(--ink);font-family:var(--font-head);transition:all 0.2s;display:flex;align-items:center;gap:12px}
+.quiz-btn-letter{width:26px;height:26px;border-radius:8px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--ghost);flex-shrink:0;transition:all 0.2s;font-family:var(--font-mono)}
+.quiz-btn:hover:not(:disabled){border-color:var(--sage-soft);background:var(--mint-pale)}
+.quiz-btn:hover:not(:disabled) .quiz-btn-letter{background:var(--mint-pale);color:var(--sage)}
+.quiz-btn.correct{border-color:var(--sage-soft);background:var(--mint-pale)}
+.quiz-btn.correct .quiz-btn-letter{background:var(--sage);color:white}
+.quiz-btn.wrong{border-color:var(--red);background:var(--red-pale)}
+.quiz-btn.wrong .quiz-btn-letter{background:var(--red);color:white}
+.quiz-result-bar{padding:12px 18px;border-top:1px solid var(--border);font-size:14px;font-weight:600;display:none;align-items:center;gap:8px}
+.quiz-result-bar.pass{background:var(--mint-pale);color:var(--sage)}
+.quiz-result-bar.fail{background:var(--red-pale);color:var(--red)}
+.mark-btn{width:100%;padding:15px;background:var(--sage);color:white;border:none;border-radius:100px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-head);margin-top:1.5rem;transition:all 0.2s;letter-spacing:-0.2px}
+.mark-btn:hover{background:var(--sage-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(27,67,50,0.3)}
 
-/* ── AI TUTOR ── */
-.ai-section{margin-top:2rem;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
-.ai-header{background:var(--ink);padding:1rem 1.5rem;display:flex;align-items:center;gap:10px}
-.ai-dot{width:8px;height:8px;background:var(--green-mid);border-radius:50%;animation:pulse 2s infinite}
-.ai-header span{font-family:var(--font-display);font-size:15px;font-weight:600;color:white}
-.ai-header small{font-size:12px;color:rgba(255,255,255,0.5);margin-left:auto}
-.ai-messages{padding:1.25rem;max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:var(--white)}
-.ai-bubble{padding:10px 14px;border-radius:var(--radius);font-size:14px;line-height:1.6;max-width:85%}
-.ai-bubble.bot{background:var(--green-pale);color:var(--ink-mid);align-self:flex-start}
-.ai-bubble.user{background:var(--ink);color:white;align-self:flex-end}
-.ai-bubble.loading{background:var(--green-pale);color:var(--ghost);font-style:italic}
-.ai-input-area{display:flex;gap:0;border-top:1px solid var(--border)}
-.ai-input-area input{flex:1;padding:14px 16px;border:none;font-size:14px;background:var(--white);color:var(--ink);font-family:var(--font-body);outline:none}
-.ai-input-area button{padding:12px 20px;background:var(--green);color:white;border:none;font-family:var(--font-display);font-weight:600;font-size:14px;cursor:pointer;transition:background 0.2s}
-.ai-input-area button:hover{background:var(--green-light)}
+/* ══════════════════════════════
+   AI TUTOR
+══════════════════════════════ */
+.ai-tutor-block{margin-top:1.5rem;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden}
+.ai-tutor-head{background:var(--sage);padding:1rem 1.5rem;display:flex;align-items:center;gap:10px}
+.ai-status{width:8px;height:8px;background:var(--mint);border-radius:50%;animation:breathe 2.5s ease-in-out infinite}
+.ai-head-title{font-family:var(--font-head);font-size:14px;font-weight:600;color:white}
+.ai-head-sub{font-size:11px;color:rgba(255,255,255,0.45);margin-left:auto}
+.ai-messages{padding:1.25rem;min-height:200px;max-height:320px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:var(--white)}
+.ai-bubble{padding:11px 15px;border-radius:14px;font-size:13px;line-height:1.6;max-width:88%}
+.ai-bubble.bot{background:var(--surface);border:1px solid var(--border);color:var(--ink-mid);align-self:flex-start;border-radius:4px 14px 14px 14px}
+.ai-bubble.user{background:var(--sage);color:white;align-self:flex-end;border-radius:14px 4px 14px 14px}
+.ai-bubble.thinking{background:var(--surface);border:1px solid var(--border);color:var(--ghost);font-style:italic;align-self:flex-start}
+.ai-input-row{display:flex;border-top:1px solid var(--border)}
+.ai-input-row input{flex:1;padding:14px 16px;border:none;font-size:14px;background:var(--surface);color:var(--ink);font-family:var(--font-head);outline:none}
+.ai-input-row input::placeholder{color:var(--ghost)}
+.ai-input-row button{padding:12px 20px;background:var(--sage);color:white;border:none;font-family:var(--font-head);font-weight:600;font-size:13px;cursor:pointer;transition:background 0.2s}
+.ai-input-row button:hover{background:var(--sage-mid)}
+.ai-quick-asks{display:flex;gap:8px;padding:10px 16px;border-top:1px solid var(--border);background:var(--surface);flex-wrap:wrap}
+.quick-ask{padding:5px 12px;border:1px solid var(--border);border-radius:100px;font-size:11px;font-weight:500;color:var(--ink-soft);cursor:pointer;transition:all 0.15s;background:var(--white);font-family:var(--font-head)}
+.quick-ask:hover{border-color:var(--sage-soft);color:var(--sage);background:var(--mint-pale)}
 
-/* ── DASHBOARD ── */
-.dash-layout{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 64px)}
-.dash-sidebar{background:var(--ink);padding:2rem 1.25rem}
-.dash-sidebar h3{font-size:11px;font-weight:600;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:2px;margin:1.5rem 0 0.75rem;padding:0 0.75rem}
-.dash-nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:14px;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.15s;margin-bottom:2px}
+/* ══════════════════════════════
+   DASHBOARD
+══════════════════════════════ */
+.dash-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 60px)}
+.dash-sidebar{background:var(--ink);padding:1.75rem 1rem}
+.dash-brand{font-family:var(--font-head);font-size:16px;font-weight:700;color:white;margin-bottom:2rem;padding:0 8px;letter-spacing:-0.3px}
+.dash-nav-grp{font-size:9px;font-weight:700;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;padding:0 10px;margin:1.5rem 0 8px}
+.dash-nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;font-size:13px;color:rgba(255,255,255,0.55);cursor:pointer;transition:all 0.15s;margin-bottom:2px;font-weight:500}
 .dash-nav-item:hover,.dash-nav-item.active{background:rgba(255,255,255,0.08);color:white}
-.dash-nav-item .icon{font-size:16px;width:20px}
-.dash-main{padding:2.5rem;background:var(--surface);overflow-y:auto}
-.dash-greeting{margin-bottom:2rem}
-.dash-greeting h2{font-size:26px;font-weight:700;color:var(--ink)}
-.dash-greeting p{color:var(--ghost);font-size:14px}
-.dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
-.dash-stat{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem}
-.dash-stat-val{font-family:var(--font-display);font-size:32px;font-weight:700;color:var(--ink)}
-.dash-stat-lbl{font-size:13px;color:var(--ghost);margin-top:4px}
-.dash-stat-bar{height:4px;border-radius:100px;background:var(--border);margin-top:12px;overflow:hidden}
-.dash-stat-bar-fill{height:100%;border-radius:100px;background:var(--green-light);transition:width 0.6s}
-.dash-section-title{font-family:var(--font-display);font-size:18px;font-weight:600;margin-bottom:1rem;color:var(--ink)}
-.recent-list{display:flex;flex-direction:column;gap:8px}
-.recent-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:all 0.15s}
-.recent-item:hover{border-color:var(--green-mid);transform:translateX(4px)}
-.recent-item-title{font-size:14px;font-weight:500;color:var(--ink)}
-.recent-item-sub{font-size:12px;color:var(--ghost)}
+.dash-nav-item.active{background:rgba(116,198,157,0.12);color:var(--mint)}
+.dash-nav-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
+.dash-main{padding:2rem;background:var(--surface);overflow-y:auto}
+.dash-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem}
+.dash-greeting{font-family:var(--font-serif);font-size:28px;color:var(--ink);letter-spacing:-0.5px}
+.dash-greeting span{color:var(--sage-soft)}
+.dash-date{font-size:12px;color:var(--ghost)}
+.dash-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.kpi-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;position:relative;overflow:hidden}
+.kpi-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--sage);transform:scaleX(var(--progress,0));transform-origin:left;transition:transform 0.8s ease;border-radius:0 0 0 var(--radius-lg)}
+.kpi-card.amber::after{background:var(--gold)}
+.kpi-card.blue::after{background:#3B82F6}
+.kpi-card.red::after{background:var(--red)}
+.kpi-val{font-family:var(--font-mono);font-size:34px;color:var(--ink);letter-spacing:-1px;margin-bottom:4px}
+.kpi-label{font-size:12px;color:var(--ghost);letter-spacing:0.2px}
+.kpi-icon{position:absolute;top:1rem;right:1rem;font-size:22px;opacity:0.3}
+.dash-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem}
+.dash-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem}
+.dash-card-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:1.25rem;letter-spacing:-0.2px;display:flex;align-items:center;justify-content:space-between}
+.dash-card-title a{font-size:12px;color:var(--sage-soft);font-weight:500;cursor:pointer}
+.recent-topic-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--surface)}
+.recent-topic-item:last-child{border-bottom:none}
+.rti-info .rti-name{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.rti-info .rti-sub{font-size:11px;color:var(--ghost)}
+.rti-action{font-size:12px;color:var(--sage-soft);cursor:pointer;font-weight:500}
+.progress-bar-row{margin-bottom:12px}
+.pbr-label{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-soft);margin-bottom:5px}
+.pbr-bar{height:6px;background:var(--surface);border-radius:100px;overflow:hidden}
+.pbr-fill{height:100%;border-radius:100px;background:var(--sage);transition:width 0.8s ease}
+.streak-display{display:flex;align-items:center;gap:1.5rem;padding:1rem;background:var(--surface);border-radius:var(--radius);margin-top:1rem}
+.streak-num{font-family:var(--font-mono);font-size:40px;color:var(--ink);letter-spacing:-2px}
+.streak-lbl{font-size:12px;color:var(--ghost)}
+.streak-fire{font-size:32px}
 
-/* ── AUTH MODAL ── */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,26,20,0.7);z-index:200;align-items:center;justify-content:center}
+/* ══════════════════════════════
+   PRICING
+══════════════════════════════ */
+.pricing-wrapper{max-width:960px;margin:0 auto}
+.pricing-toggle{display:flex;align-items:center;gap:14px;justify-content:center;margin:1.5rem 0 3rem}
+.toggle-label{font-size:14px;color:var(--ink-soft)}
+.toggle-switch{width:48px;height:26px;background:var(--sage);border-radius:100px;cursor:pointer;position:relative;transition:background 0.2s}
+.toggle-switch::after{content:'';position:absolute;width:20px;height:20px;background:white;border-radius:50%;top:3px;left:3px;transition:left 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.15)}
+.toggle-switch.annual::after{left:25px}
+.save-badge{padding:3px 10px;background:var(--gold-pale);border-radius:100px;font-size:11px;font-weight:700;color:#9a5a00}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.plan-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-xl);padding:2rem;position:relative}
+.plan-card.pop{border-color:var(--sage);border-width:2px;background:var(--ink)}
+.plan-pop-label{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--mint);color:var(--sage);font-size:11px;font-weight:700;padding:4px 16px;border-radius:100px;white-space:nowrap}
+.plan-name{font-size:13px;font-weight:700;color:var(--ink-soft);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.plan-card.pop .plan-name{color:rgba(255,255,255,0.5)}
+.plan-price{font-family:var(--font-mono);font-size:44px;color:var(--ink);letter-spacing:-2px;margin-bottom:4px}
+.plan-card.pop .plan-price{color:white}
+.plan-period{font-size:13px;color:var(--ghost);margin-bottom:1.5rem}
+.plan-features{list-style:none;margin-bottom:1.75rem}
+.plan-features li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--ink-mid);padding:6px 0;border-bottom:1px solid var(--surface)}
+.plan-card.pop .plan-features li{color:rgba(255,255,255,0.7);border-bottom-color:rgba(255,255,255,0.07)}
+.plan-features li:last-child{border-bottom:none}
+.plan-check{color:var(--sage-soft);font-weight:700;flex-shrink:0;margin-top:1px}
+.plan-card.pop .plan-check{color:var(--mint)}
+.plan-btn{width:100%;padding:13px;border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font-head);transition:all 0.2s;letter-spacing:-0.2px}
+.plan-btn-outline{border:1.5px solid var(--border);background:transparent;color:var(--ink)}
+.plan-btn-outline:hover{border-color:var(--sage);color:var(--sage);background:var(--mint-pale)}
+.plan-btn-fill{border:none;background:var(--mint);color:var(--sage)}
+.plan-btn-fill:hover{background:white;transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,255,255,0.2)}
+
+/* ══════════════════════════════
+   AUTH MODAL
+══════════════════════════════ */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(13,27,18,0.75);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
 .modal-overlay.open{display:flex}
-.modal{background:var(--white);border-radius:var(--radius-xl);padding:2.5rem;width:100%;max-width:420px;box-shadow:var(--shadow-lg);animation:modalIn 0.25s ease}
-@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(0.97)}to{opacity:1;transform:none}}
-.modal h2{font-size:24px;font-weight:700;margin-bottom:0.5rem}
-.modal p{color:var(--ghost);font-size:14px;margin-bottom:2rem}
-.form-group{margin-bottom:1rem}
-.form-group label{display:block;font-size:13px;font-weight:500;color:var(--ink-mid);margin-bottom:6px}
-.form-group input,.form-group select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:15px;font-family:var(--font-body);color:var(--ink);background:var(--white);outline:none;transition:border-color 0.2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--green-light)}
-.form-submit{width:100%;padding:14px;background:var(--green);color:white;border:none;border-radius:100px;font-size:16px;font-weight:600;cursor:pointer;font-family:var(--font-display);margin-top:0.5rem;transition:all 0.2s}
-.form-submit:hover{background:var(--green-light)}
-.form-switch{text-align:center;margin-top:1rem;font-size:14px;color:var(--ghost)}
-.form-switch a{color:var(--green);cursor:pointer;font-weight:500}
-.modal-close{position:absolute;top:1rem;right:1rem;width:32px;height:32px;border-radius:50%;border:none;background:var(--surface);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;color:var(--ghost)}
+.modal{background:var(--white);border-radius:var(--radius-xl);padding:2.5rem;width:100%;max-width:400px;box-shadow:var(--shadow-pop);animation:slideUp 0.28s cubic-bezier(0.34,1.56,0.64,1);position:relative}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px) scale(0.95)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--border);background:var(--surface);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--ghost);transition:all 0.15s;font-family:inherit}
+.modal-close:hover{border-color:var(--ink);color:var(--ink)}
+.modal-title{font-family:var(--font-serif);font-size:26px;color:var(--ink);margin-bottom:6px;letter-spacing:-0.5px}
+.modal-sub{font-size:13px;color:var(--ghost);margin-bottom:1.75rem}
+.form-grp{margin-bottom:14px}
+.form-grp label{display:block;font-size:12px;font-weight:600;color:var(--ink-mid);margin-bottom:5px;letter-spacing:0.2px}
+.form-grp input,.form-grp select{width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:14px;font-family:var(--font-head);color:var(--ink);background:var(--white);outline:none;transition:border-color 0.2s}
+.form-grp input:focus,.form-grp select:focus{border-color:var(--sage)}
+.form-submit{width:100%;padding:13px;background:var(--sage);color:white;border:none;border-radius:100px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-head);transition:all 0.2s;margin-top:6px;letter-spacing:-0.2px}
+.form-submit:hover{background:var(--sage-mid);transform:translateY(-1px)}
+.form-switch{text-align:center;margin-top:14px;font-size:13px;color:var(--ghost)}
+.form-switch a{color:var(--sage-soft);cursor:pointer;font-weight:600}
 
-/* ── PRICING ── */
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
-.plan-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2rem;position:relative}
-.plan-card.featured{border-color:var(--green-light);border-width:2px}
-.plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--green);color:white;font-size:12px;font-weight:600;padding:4px 16px;border-radius:100px;font-family:var(--font-display)}
-.plan-name{font-family:var(--font-display);font-size:18px;font-weight:600;margin-bottom:8px}
-.plan-price{font-family:var(--font-display);font-size:42px;font-weight:800;color:var(--ink)}
-.plan-price span{font-size:16px;font-weight:400;color:var(--ghost)}
-.plan-features{list-style:none;margin:1.5rem 0;display:flex;flex-direction:column;gap:10px}
-.plan-features li{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-mid)}
-.plan-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
-.plan-btn{width:100%;padding:13px;border-radius:100px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-display);transition:all 0.2s}
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer{background:var(--ink);padding:4rem 1.5rem 2rem}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3.5rem}
+.footer-brand-name{font-family:var(--font-head);font-size:20px;font-weight:700;color:white;margin-bottom:12px;letter-spacing:-0.3px}
+.footer-brand-desc{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.8;max-width:280px}
+.footer-col h4{font-size:10px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:2px;margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:9px;transition:color 0.2s;cursor:pointer}
+.footer-col a:hover{color:var(--mint)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,0.25)}
+.footer-tagline{color:rgba(255,255,255,0.15);font-family:var(--font-serif);font-style:italic;font-size:14px}
 
-/* ── FOOTER ── */
-footer{background:var(--ink);color:rgba(255,255,255,0.6);padding:4rem 2rem 2rem}
-.footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
-.footer-brand p{font-size:14px;line-height:1.8;margin-top:1rem;color:rgba(255,255,255,0.45);max-width:300px}
-.footer-col h4{font-family:var(--font-display);font-size:13px;font-weight:600;color:white;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem}
-.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:8px;transition:color 0.2s;cursor:pointer}
-.footer-col a:hover{color:var(--green-mid)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.footer-bottom p{font-size:13px}
-
-/* ── TOAST ── */
-.toast{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:white;padding:12px 20px;border-radius:var(--radius);font-size:14px;font-weight:500;z-index:999;transform:translateY(100px);opacity:0;transition:all 0.3s;border-left:4px solid var(--green-light)}
+/* ══════════════════════════════
+   TOAST
+══════════════════════════════ */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:white;padding:12px 20px;border-radius:var(--radius);font-size:13px;font-weight:500;z-index:999;transform:translateY(16px);opacity:0;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);border-left:3px solid var(--mint);max-width:320px;box-shadow:var(--shadow-lg)}
 .toast.show{transform:none;opacity:1}
 
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  .lesson-layout,.dash-layout{grid-template-columns:1fr}
-  .lesson-sidebar,.dash-sidebar{display:none}
-  .dash-stats{grid-template-columns:repeat(2,1fr)}
-  .footer-top{grid-template-columns:1fr 1fr}
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:960px){
+  .features-bento{grid-template-columns:1fr 1fr}
+  .bento-card.tall{grid-row:span 1}
+  .dash-kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .dash-row{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
   .nav-links{display:none}
   .hamburger{display:flex}
-}
-@media(max-width:600px){
-  .hero{padding:60px 1.25rem 80px}
-  .section{padding:60px 1.25rem}
-  .dash-stats{grid-template-columns:1fr 1fr}
-  .hero-stats{gap:2rem}
+  .lesson-layout,.dash-layout{grid-template-columns:1fr}
+  .lesson-sidebar,.dash-sidebar{display:none}
   .lesson-main{padding:1.5rem}
-  .footer-top{grid-template-columns:1fr}
+  .features-bento{grid-template-columns:1fr}
+  .bento-card.wide{grid-column:span 1}
+  .hero-stats{gap:2rem}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero{padding:60px 1rem}
+  .section{padding:60px 1rem}
+  .dash-kpi-grid{grid-template-columns:1fr 1fr}
 }
 
-/* ── ANIMATIONS ── */
-.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
-.fade-in.visible{opacity:1;transform:none}
-.stagger-1{transition-delay:0.1s}
-.stagger-2{transition-delay:0.2s}
-.stagger-3{transition-delay:0.3s}
-.stagger-4{transition-delay:0.4s}
+/* ══════════════════════════════
+   ANIMATIONS
+══════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:none}
+.delay-1{transition-delay:0.1s}
+.delay-2{transition-delay:0.2s}
+.delay-3{transition-delay:0.3s}
+.delay-4{transition-delay:0.4s}
 </style>
 </head>
 <body>
@@ -271,122 +394,174 @@ footer{background:var(--ink);color:rgba(255,255,255,0.6);padding:4rem 2rem 2rem}
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="#" onclick="showPage('home')">
-      <span>E</span> Elimu Digital
+    <a class="nav-logo" onclick="showPage('home')">
+      <div class="logo-mark">S</div>Soma
     </a>
     <div class="nav-links">
       <a onclick="showPage('learn')">Learn</a>
       <a onclick="showPage('pricing')">Pricing</a>
-      <a href="#about">About</a>
+      <a onclick="scrollToFeatures()">Features</a>
     </div>
-    <div class="nav-cta">
-      <a class="btn-outline" onclick="openModal('login')">Sign in</a>
-      <a class="btn-solid" onclick="openModal('register')">Get started free</a>
+    <div class="nav-right">
+      <button class="btn-ghost" onclick="openModal('login')">Sign in</button>
+      <button class="btn-primary" onclick="openModal('register')">Start free →</button>
     </div>
-    <div class="hamburger" onclick="toggleMobileMenu()">
+    <div class="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
 
-<!-- ════ HOME PAGE ════ -->
+<!-- ════════════ HOME ════════════ -->
 <div id="page-home" class="page active">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
     <div class="hero-inner">
-      <div class="hero-badge fade-in"><div class="hero-badge-dot"></div><span>Built for Kenya's CBC curriculum</span></div>
-      <h1 class="fade-in stagger-1">Learn smarter.<br/>Master <em>Grade 7–9</em><br/>CBC with AI.</h1>
-      <p class="fade-in stagger-2">The first platform built exclusively for Kenyan CBC students. Structured notes, AI tutoring, quizzes and progress tracking — all in one place.</p>
-      <div class="hero-actions fade-in stagger-3">
-        <button class="hero-btn-main" onclick="showPage('learn')">Start learning free →</button>
-        <button class="hero-btn-sec" onclick="showPage('pricing')">See pricing</button>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span class="eyebrow-text">Built for Kenya's CBC — Grade 7 to 9</span>
       </div>
-      <div class="hero-stats fade-in stagger-4">
-        <div><div class="hero-stat-num">30+</div><div class="hero-stat-lbl">CBC topics covered</div></div>
-        <div><div class="hero-stat-num">5</div><div class="hero-stat-lbl">Subjects</div></div>
-        <div><div class="hero-stat-num">AI</div><div class="hero-stat-lbl">Powered tutor</div></div>
-        <div><div class="hero-stat-num">Free</div><div class="hero-stat-lbl">To get started</div></div>
+      <h1 class="hero-title">
+        <span class="small-word">The smartest way to</span><br/>
+        <em>Soma</em> and <em>Excel</em>
+      </h1>
+      <p class="hero-sub">AI tutoring, structured CBC notes, quizzes and progress tracking — all in one place, built for Kenyan Junior Secondary students.</p>
+      <div class="hero-actions">
+        <button class="hero-cta" onclick="openModal('register')">Start learning free →</button>
+        <button class="hero-sec" onclick="showPage('learn')">Browse subjects</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">30+</div><div class="hero-stat-lbl">CBC Topics</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-lbl">Subjects</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">AI</div><div class="hero-stat-lbl">Tutor powered by Claude</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">KSh 0</div><div class="hero-stat-lbl">To start</div></div>
+      </div>
+    </div>
+    <!-- Floating cards -->
+    <div class="hero-floating">
+      <div class="hero-card">
+        <div class="hc-label">AI TUTOR — LIVE</div>
+        <div class="hc-content">"How do you solve quadratic equations?"</div>
+        <div class="hc-score">✓ Answer in 2 seconds</div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-label">PROGRESS</div>
+        <div class="hc-content">Amina completed Grade 8 Algebra ↗ on a 7-day streak</div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-label">QUIZ RESULT</div>
+        <div class="hc-content">Quadratic Equations — 4/4 correct</div>
+        <div class="hc-score">🏆 Top 10% this week</div>
       </div>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section class="section">
+  <section class="section" id="features">
     <div class="section-inner">
-      <div class="section-tag fade-in">Why Elimu Digital</div>
-      <h2 class="section-title fade-in">Everything a CBC student needs</h2>
-      <p class="section-sub fade-in">Not just notes. A full learning system that adapts to where you are and gets you where you need to be.</p>
-      <div class="features-grid">
-        <div class="feature-card fade-in stagger-1">
-          <div class="feature-icon">📚</div>
-          <div class="feature-title">Structured CBC Notes</div>
-          <div class="feature-desc">Every topic from Grade 7 to 9 — written clearly with worked examples, following the KICD curriculum exactly.</div>
+      <div class="section-label reveal">Why Soma</div>
+      <h2 class="section-title reveal delay-1">Everything a <em>CBC student</em><br/>actually needs</h2>
+      <p class="section-sub reveal delay-2">Not just notes. A full learning system that knows the Kenyan curriculum, adapts to you, and gets you to the top.</p>
+      <div class="features-bento">
+        <div class="bento-card tall dark reveal">
+          <div class="bento-icon">🤖</div>
+          <div class="bento-title">AI Tutor — Powered by Claude</div>
+          <div class="bento-desc">Ask anything about your CBC topics. Get clear, grade-appropriate answers with Kenyan examples, in English or Kiswahili.</div>
+          <div class="ai-preview">
+            <div class="ai-line"><span>You:</span> Explain quadratic equations simply</div>
+            <div class="ai-line"><span>Soma AI:</span> Think of it like this — a quadratic is any equation where x is squared (x²)...</div>
+            <div class="ai-cursor"></div>
+          </div>
+          <div class="bento-pill">Powered by Anthropic Claude</div>
         </div>
-        <div class="feature-card fade-in stagger-2">
-          <div class="feature-icon">🤖</div>
-          <div class="feature-title">AI Tutor (Claude)</div>
-          <div class="feature-desc">Ask anything, get simple answers. Your personal tutor available 24/7 — explains in plain English and uses Kenyan examples.</div>
+        <div class="bento-card reveal delay-1">
+          <div class="bento-icon">📚</div>
+          <div class="bento-title">KICD-Aligned CBC Notes</div>
+          <div class="bento-desc">Every topic from Grade 7 to 9, written clearly with worked examples, following the official curriculum exactly.</div>
+          <div class="bento-pill">10 Subjects · 300+ Topics</div>
         </div>
-        <div class="feature-card fade-in stagger-3">
-          <div class="feature-icon">📝</div>
-          <div class="feature-title">Topic Quizzes</div>
-          <div class="feature-desc">Test yourself after every lesson with instant feedback. Track what you know and what needs more attention.</div>
+        <div class="bento-card reveal delay-2">
+          <div class="bento-icon">📝</div>
+          <div class="bento-title">Instant Quiz Feedback</div>
+          <div class="bento-desc">Test yourself after every lesson. Know exactly what you know — and what needs revision.</div>
         </div>
-        <div class="feature-card fade-in stagger-1">
-          <div class="feature-icon">📊</div>
-          <div class="feature-title">Progress Dashboard</div>
-          <div class="feature-desc">See exactly where you are across all subjects and grades. Never lose track of what you've covered.</div>
+        <div class="bento-card wide reveal">
+          <div style="display:flex;gap:2rem;align-items:flex-start">
+            <div>
+              <div class="bento-icon">📊</div>
+              <div class="bento-title">Progress Dashboard</div>
+              <div class="bento-desc">Visual tracking across every subject and grade. Streaks, completion rates, quiz scores — all in one view.</div>
+            </div>
+            <div style="flex:1;min-width:0">
+              <div style="margin-top:8px">
+                <div class="pbr-label"><span>Mathematics</span><span>75%</span></div>
+                <div class="pbr-bar"><div class="pbr-fill" style="width:75%"></div></div>
+              </div>
+              <div style="margin-top:10px">
+                <div class="pbr-label"><span>English</span><span>60%</span></div>
+                <div class="pbr-bar"><div class="pbr-fill" style="width:60%;background:var(--gold)"></div></div>
+              </div>
+              <div style="margin-top:10px">
+                <div class="pbr-label"><span>Science</span><span>40%</span></div>
+                <div class="pbr-bar"><div class="pbr-fill" style="width:40%;background:#3B82F6"></div></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="feature-card fade-in stagger-2">
-          <div class="feature-icon">🏆</div>
-          <div class="feature-title">Streaks & Leaderboard</div>
-          <div class="feature-desc">Stay motivated with daily streaks and compete with classmates. Learning is better when it's social.</div>
+        <div class="bento-card reveal">
+          <div class="bento-icon">🏆</div>
+          <div class="bento-title">Streaks & Leaderboard</div>
+          <div class="bento-desc">Stay motivated with daily streaks. Compete with classmates. Learning is better social.</div>
         </div>
-        <div class="feature-card fade-in stagger-3">
-          <div class="feature-icon">👩‍🏫</div>
-          <div class="feature-title">Teacher & Parent Tools</div>
-          <div class="feature-desc">Teachers can track whole-class progress. Parents can see how their child is doing — in real time.</div>
+        <div class="bento-card reveal delay-1">
+          <div class="bento-icon">👩‍🏫</div>
+          <div class="bento-title">Teacher & Parent Tools</div>
+          <div class="bento-desc">Teachers track whole-class progress. Parents get weekly reports. Everyone stays in the loop.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SUBJECTS -->
-  <section class="section subjects-section" id="about">
+  <!-- SUBJECTS PREVIEW -->
+  <section class="section subjects-section">
     <div class="section-inner">
-      <div class="section-tag">Subjects</div>
-      <h2 class="section-title">All CBC Grade 7–9 subjects</h2>
-      <p class="section-sub">Full curriculum coverage. Start anywhere, go at your own pace.</p>
-      <div class="subjects-grid">
-        <div class="subject-card fade-in" onclick="showPage('learn')"><span class="subject-emoji">➕</span><div class="subject-name">Mathematics</div><div class="subject-count">10 topics</div></div>
-        <div class="subject-card fade-in stagger-1" onclick="showPage('learn')"><span class="subject-emoji">📖</span><div class="subject-name">English</div><div class="subject-count">6 topics</div></div>
-        <div class="subject-card fade-in stagger-2" onclick="showPage('learn')"><span class="subject-emoji">🇰🇪</span><div class="subject-name">Kiswahili</div><div class="subject-count">3 topics</div></div>
-        <div class="subject-card fade-in stagger-3" onclick="showPage('learn')"><span class="subject-emoji">🔬</span><div class="subject-name">Science</div><div class="subject-count">6 topics</div></div>
-        <div class="subject-card fade-in stagger-4" onclick="showPage('learn')"><span class="subject-emoji">🌍</span><div class="subject-name">Social Studies</div><div class="subject-count">4 topics</div></div>
+      <div class="section-label reveal">Curriculum</div>
+      <h2 class="section-title reveal delay-1">All <em>CBC Grade 7–9</em> subjects</h2>
+      <p class="section-sub reveal delay-2">Full curriculum coverage across every mandatory subject. Start anywhere, go at your pace.</p>
+      <div class="subjects-scroll" style="margin-top:2.5rem">
+        <div class="subj-chip active" onclick="showPage('learn')"><span class="emoji">➕</span>Mathematics<span class="count">10</span></div>
+        <div class="subj-chip" onclick="showPage('learn')"><span class="emoji">📖</span>English<span class="count">6</span></div>
+        <div class="subj-chip" onclick="showPage('learn')"><span class="emoji">🇰🇪</span>Kiswahili<span class="count">3</span></div>
+        <div class="subj-chip" onclick="showPage('learn')"><span class="emoji">🔬</span>Science<span class="count">6</span></div>
+        <div class="subj-chip" onclick="showPage('learn')"><span class="emoji">🌍</span>Social Studies<span class="count">4</span></div>
+        <div class="subj-chip" style="opacity:0.5;pointer-events:none"><span class="emoji">✝️</span>RE (Coming soon)</div>
+        <div class="subj-chip" style="opacity:0.5;pointer-events:none"><span class="emoji">🎨</span>Creative Arts (Soon)</div>
+        <div class="subj-chip" style="opacity:0.5;pointer-events:none"><span class="emoji">🌱</span>Agriculture (Soon)</div>
       </div>
     </div>
   </section>
 
-  <!-- PRICING TEASER -->
-  <section class="section" style="background:var(--ink);color:white;text-align:center">
+  <!-- CTA BAND -->
+  <section class="section" style="background:var(--sage);padding:5rem 1.5rem;text-align:center">
     <div class="section-inner">
-      <div style="font-size:12px;font-weight:600;color:var(--green-mid);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px">Free to start</div>
-      <h2 style="font-size:clamp(28px,4vw,52px);font-weight:700;color:white;margin-bottom:1rem">Start learning today.<br/>No credit card needed.</h2>
-      <p style="font-size:17px;color:rgba(255,255,255,0.55);max-width:480px;margin:0 auto 2rem;font-weight:300">Access 10 topics free. Upgrade for full access to all subjects, AI tutor and progress tracking.</p>
-      <button class="hero-btn-main" onclick="openModal('register')">Create free account →</button>
+      <div style="font-size:11px;font-weight:700;color:var(--mint);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px">Free to start · No credit card</div>
+      <h2 style="font-family:var(--font-serif);font-size:clamp(28px,5vw,56px);color:white;letter-spacing:-1px;margin-bottom:16px;line-height:1.15">Start learning today.<br/><em style="color:var(--mint)">Catch up. Keep up. Excel.</em></h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.55);max-width:420px;margin:0 auto 2rem;font-weight:400;line-height:1.7">Join Kenyan Grade 7–9 students already using Soma to master their CBC subjects.</p>
+      <button class="hero-cta" onclick="openModal('register')" style="font-size:16px;padding:16px 36px">Create free account →</button>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:white">Elimu Digital</div>
-          <p>Kenya's first AI-powered CBC learning platform. Built to help every Grade 7–9 student catch up, keep up and excel.</p>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Soma</div>
+          <div class="footer-brand-desc">Kenya's AI-powered CBC learning platform. Built to help every Grade 7–9 student catch up, keep up and excel.</div>
         </div>
         <div class="footer-col">
           <h4>Learn</h4>
@@ -398,184 +573,236 @@ footer{background:var(--ink);color:rgba(255,255,255,0.6);padding:4rem 2rem 2rem}
         <div class="footer-col">
           <h4>Platform</h4>
           <a onclick="showPage('pricing')">Pricing</a>
-          <a onclick="openModal('register')">Sign up</a>
+          <a onclick="openModal('register')">Sign up free</a>
           <a onclick="showPage('dashboard')">Dashboard</a>
+          <a>For schools</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
-          <a href="#">About us</a>
-          <a href="#">Blog</a>
-          <a href="#">Contact</a>
-          <a href="#">Privacy policy</a>
+          <a>About us</a>
+          <a>Blog</a>
+          <a>Contact</a>
+          <a>Privacy policy</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 Elimu Digital. All rights reserved.</p>
-        <p>Made with ❤️ for Kenyan students</p>
+        <span>© 2025 Soma · MIT License</span>
+        <span class="footer-tagline">Made with ❤️ for Kenyan students</span>
       </div>
     </div>
   </footer>
 </div>
 
-<!-- ════ LEARN PAGE ════ -->
+<!-- ════════════ LEARN PAGE ════════════ -->
 <div id="page-learn" class="page">
   <div id="learn-browse">
     <section class="section" style="padding-bottom:0">
       <div class="section-inner">
-        <div class="section-tag">Curriculum</div>
+        <div class="section-label">Curriculum Library</div>
         <h2 class="section-title">Pick a subject & grade</h2>
-        <div class="subjects-grid" id="learn-subjects" style="margin-top:2rem"></div>
-        <div class="grade-pills" id="learn-grades">
-          <button class="grade-pill active" onclick="setLearnGrade(7,this)">Grade 7</button>
-          <button class="grade-pill" onclick="setLearnGrade(8,this)">Grade 8</button>
-          <button class="grade-pill" onclick="setLearnGrade(9,this)">Grade 9</button>
+        <div class="subjects-scroll" id="learn-subject-chips" style="margin-top:1.75rem"></div>
+        <div class="grade-tabs" id="learn-grade-tabs">
+          <button class="grade-tab active" onclick="setGrade(7,this)">Grade 7</button>
+          <button class="grade-tab" onclick="setGrade(8,this)">Grade 8</button>
+          <button class="grade-tab" onclick="setGrade(9,this)">Grade 9</button>
         </div>
       </div>
     </section>
-    <section class="section" style="padding-top:1rem">
+    <section class="section" style="padding-top:0.5rem">
       <div class="section-inner">
-        <div class="topics-grid" id="learn-topics"></div>
+        <div class="topics-grid" id="learn-topics-grid"></div>
       </div>
     </section>
   </div>
 
   <!-- LESSON VIEW -->
-  <div id="lesson-view" style="display:none">
+  <div id="lesson-view">
     <div class="lesson-layout">
       <aside class="lesson-sidebar">
-        <h3>Topics</h3>
-        <div id="lesson-sidebar-list"></div>
+        <div class="sidebar-header">Topics in this grade</div>
+        <div id="lesson-sb-list"></div>
       </aside>
       <main class="lesson-main">
         <div class="lesson-back" onclick="closeLessonView()">← Back to topics</div>
-        <div class="lesson-header">
-          <h1 class="lesson-title" id="lt-title"></h1>
-          <div class="lesson-meta">
-            <span class="topic-grade-badge" id="lt-badge"></span>
-            <span id="lt-subject" style="font-size:13px;color:var(--ghost)"></span>
+        <div class="lesson-subject-tag" id="lt-subject-tag"></div>
+        <h1 class="lesson-title" id="lt-title"></h1>
+        <div class="lesson-meta-row">
+          <span class="meta-pill" id="lt-grade-pill"></span>
+          <span class="meta-pill" id="lt-subj-pill"></span>
+        </div>
+        <p class="lesson-summary" id="lt-summary"></p>
+        <div class="example-block">
+          <div class="example-label">📌 Worked Example</div>
+          <div class="example-text" id="lt-example"></div>
+        </div>
+        <hr class="section-divider"/>
+
+        <!-- QUIZ -->
+        <div class="quiz-block">
+          <div class="quiz-header">
+            <span class="quiz-header-icon">📝</span>
+            <span class="quiz-header-title">Test Yourself</span>
+            <span class="quiz-header-sub">1 question · instant feedback</span>
+          </div>
+          <div class="quiz-body">
+            <div class="quiz-question" id="lt-quiz-q"></div>
+            <div class="quiz-options" id="lt-quiz-opts"></div>
+            <div class="quiz-result-bar" id="lt-quiz-result"></div>
           </div>
         </div>
-        <div class="lesson-body">
-          <p id="lt-summary"></p>
-          <div class="callout"><strong>Example:</strong> <span id="lt-example"></span></div>
-        </div>
-        <div class="quiz-section">
-          <h3>Test yourself</h3>
-          <div class="quiz-q-text" id="lt-quiz-q"></div>
-          <div class="quiz-options" id="lt-quiz-opts"></div>
-          <div id="lt-quiz-result" style="display:none" class="quiz-result"></div>
-        </div>
-        <div class="ai-section">
-          <div class="ai-header">
-            <div class="ai-dot"></div>
-            <span>AI Tutor</span>
-            <small>Ask anything about this topic</small>
+
+        <!-- AI TUTOR -->
+        <div class="ai-tutor-block" style="margin-top:1.5rem">
+          <div class="ai-tutor-head">
+            <div class="ai-status"></div>
+            <span class="ai-head-title">Soma AI Tutor</span>
+            <span class="ai-head-sub">Ask anything about this topic</span>
           </div>
           <div class="ai-messages" id="lt-ai-chat"></div>
-          <div class="ai-input-area">
-            <input id="lt-ai-input" placeholder="E.g. Can you explain this more simply?" onkeydown="if(event.key==='Enter')ltAskAI()"/>
+          <div class="ai-quick-asks">
+            <span class="quick-ask" onclick="quickAsk('Explain this more simply')">Explain simpler</span>
+            <span class="quick-ask" onclick="quickAsk('Give me another example')">Another example</span>
+            <span class="quick-ask" onclick="quickAsk('How is this used in real life in Kenya?')">Real-life use</span>
+            <span class="quick-ask" onclick="quickAsk('What are common mistakes students make?')">Common mistakes</span>
+          </div>
+          <div class="ai-input-row">
+            <input id="lt-ai-input" placeholder="Ask a question about this topic..." onkeydown="if(event.key==='Enter')ltAskAI()"/>
             <button onclick="ltAskAI()">Ask →</button>
           </div>
         </div>
-        <button class="mark-done-btn" onclick="markTopicDone()">Mark as complete ✓</button>
+
+        <button class="mark-btn" onclick="markDone()">Mark as complete ✓</button>
       </main>
     </div>
   </div>
 </div>
 
-<!-- ════ DASHBOARD PAGE ════ -->
+<!-- ════════════ DASHBOARD ════════════ -->
 <div id="page-dashboard" class="page">
   <div class="dash-layout">
     <aside class="dash-sidebar">
-      <div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:white;padding:0 0.75rem;margin-bottom:2rem">Elimu Digital</div>
-      <div class="dash-nav-item active" onclick="dashTab('overview')"><span class="icon">📊</span>Overview</div>
-      <div class="dash-nav-item" onclick="showPage('learn')"><span class="icon">📚</span>Continue learning</div>
-      <div class="dash-nav-item" onclick="dashTab('progress')"><span class="icon">📈</span>My progress</div>
-      <div class="dash-nav-item" onclick="dashTab('quizzes')"><span class="icon">📝</span>Quizzes</div>
-      <h3>Account</h3>
-      <div class="dash-nav-item" onclick="dashTab('settings')"><span class="icon">⚙️</span>Settings</div>
-      <div class="dash-nav-item" style="margin-top:auto;color:rgba(255,255,255,0.4)" onclick="showPage('home')"><span class="icon">←</span>Back to home</div>
+      <div class="dash-brand">Soma</div>
+      <div class="dash-nav-grp">Main</div>
+      <div class="dash-nav-item active" onclick="setDashTab(this,'overview')"><span class="dash-nav-icon">📊</span>Overview</div>
+      <div class="dash-nav-item" onclick="showPage('learn')"><span class="dash-nav-icon">📚</span>Continue learning</div>
+      <div class="dash-nav-item" onclick="setDashTab(this,'progress')"><span class="dash-nav-icon">📈</span>My Progress</div>
+      <div class="dash-nav-grp">Account</div>
+      <div class="dash-nav-item" onclick="showPage('pricing')"><span class="dash-nav-icon">⭐</span>Upgrade plan</div>
+      <div class="dash-nav-item" onclick="showPage('home')"><span class="dash-nav-icon">←</span>Home</div>
     </aside>
     <main class="dash-main">
-      <div class="dash-greeting">
-        <h2>Good morning, Student 👋</h2>
-        <p>You're on a 3-day streak. Keep it up!</p>
+      <div class="dash-topbar">
+        <div>
+          <div class="dash-greeting">Good morning, <span id="dash-name">Student</span> 👋</div>
+          <div class="dash-date" id="dash-date"></div>
+        </div>
+        <button class="btn-primary" onclick="showPage('learn')">+ Continue learning</button>
       </div>
-      <div class="dash-stats">
-        <div class="dash-stat">
-          <div class="dash-stat-val" id="ds-done">0</div>
-          <div class="dash-stat-lbl">Topics completed</div>
-          <div class="dash-stat-bar"><div class="dash-stat-bar-fill" id="ds-done-bar" style="width:0%"></div></div>
+      <div class="dash-kpi-grid">
+        <div class="kpi-card" id="kpi-topics">
+          <div class="kpi-val" id="kpi-topics-val">0</div>
+          <div class="kpi-label">Topics completed</div>
+          <div class="kpi-icon">📚</div>
         </div>
-        <div class="dash-stat">
-          <div class="dash-stat-val" id="ds-quiz">0</div>
-          <div class="dash-stat-lbl">Quizzes passed</div>
-          <div class="dash-stat-bar"><div class="dash-stat-bar-fill" style="width:0%;background:var(--amber)"></div></div>
+        <div class="kpi-card amber" id="kpi-quiz">
+          <div class="kpi-val" id="kpi-quiz-val">0</div>
+          <div class="kpi-label">Quizzes passed</div>
+          <div class="kpi-icon">📝</div>
         </div>
-        <div class="dash-stat">
-          <div class="dash-stat-val">3</div>
-          <div class="dash-stat-lbl">Day streak</div>
-          <div class="dash-stat-bar"><div class="dash-stat-bar-fill" style="width:30%;background:#D97706"></div></div>
+        <div class="kpi-card blue">
+          <div class="kpi-val">3</div>
+          <div class="kpi-label">Day streak 🔥</div>
+          <div class="kpi-icon">🔥</div>
         </div>
-        <div class="dash-stat">
-          <div class="dash-stat-val" id="ds-pct">0%</div>
-          <div class="dash-stat-lbl">Overall progress</div>
-          <div class="dash-stat-bar"><div class="dash-stat-bar-fill" id="ds-pct-bar" style="width:0%"></div></div>
+        <div class="kpi-card red">
+          <div class="kpi-val" id="kpi-pct-val">0%</div>
+          <div class="kpi-label">Overall progress</div>
+          <div class="kpi-icon">📊</div>
         </div>
       </div>
-      <div class="dash-section-title">Recent topics</div>
-      <div class="recent-list" id="dash-recent">
-        <div class="recent-item"><div><div class="recent-item-title">No topics started yet</div><div class="recent-item-sub">Head to the Learn page to get started</div></div><span onclick="showPage('learn')" style="color:var(--green);font-size:14px;cursor:pointer">Start →</span></div>
+      <div class="dash-row">
+        <div class="dash-card">
+          <div class="dash-card-title">Subject progress <a onclick="showPage('learn')">View all →</a></div>
+          <div id="dash-subject-bars"></div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">Recent topics <a onclick="showPage('learn')">Continue →</a></div>
+          <div id="dash-recent-list">
+            <div style="font-size:13px;color:var(--ghost);padding:1rem 0;text-align:center">No topics started yet.<br/>Head to the Learn page to begin!</div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-card" style="margin-bottom:1.5rem">
+        <div class="dash-card-title">Your streak</div>
+        <div class="streak-display">
+          <span class="streak-fire">🔥</span>
+          <div>
+            <div class="streak-num">3</div>
+            <div class="streak-lbl">days in a row</div>
+          </div>
+          <div style="margin-left:auto;font-size:13px;color:var(--ghost)">Keep learning daily to grow your streak. Come back tomorrow to reach 4 days!</div>
+        </div>
       </div>
     </main>
   </div>
 </div>
 
-<!-- ════ PRICING PAGE ════ -->
+<!-- ════════════ PRICING ════════════ -->
 <div id="page-pricing" class="page">
   <section class="section">
-    <div class="section-inner" style="text-align:center">
-      <div class="section-tag" style="display:inline-block">Pricing</div>
-      <h2 class="section-title" style="max-width:600px;margin:0.5rem auto 1rem">Simple, honest pricing</h2>
-      <p class="section-sub" style="margin:0 auto 3rem">Start free. No credit card. Upgrade when you're ready.</p>
+    <div class="section-inner pricing-wrapper">
+      <div style="text-align:center;margin-bottom:0">
+        <div class="section-label" style="display:inline-block">Pricing</div>
+        <h2 class="section-title" style="max-width:500px;margin:0.5rem auto 12px">Simple,<br/><em>honest pricing</em></h2>
+        <p class="section-sub" style="margin:0 auto 1.5rem;text-align:center">Start free. No credit card. Upgrade when you're ready.</p>
+        <div class="pricing-toggle">
+          <span class="toggle-label">Monthly</span>
+          <div class="toggle-switch" id="billing-toggle" onclick="toggleBilling()"></div>
+          <span class="toggle-label">Annual</span>
+          <span class="save-badge">Save 2 months</span>
+        </div>
+      </div>
       <div class="pricing-grid">
-        <div class="plan-card fade-in">
+        <div class="plan-card">
           <div class="plan-name">Free</div>
-          <div class="plan-price">KSh 0<span>/month</span></div>
+          <div class="plan-price" id="price-free">KSh 0</div>
+          <div class="plan-period">Forever</div>
           <ul class="plan-features">
-            <li>10 topics across all subjects</li>
-            <li>AI tutor (5 questions/day)</li>
-            <li>Basic progress tracking</li>
-            <li>Quizzes for free topics</li>
+            <li><span class="plan-check">✓</span>5 topics across all subjects</li>
+            <li><span class="plan-check">✓</span>AI tutor (5 questions/day)</li>
+            <li><span class="plan-check">✓</span>Basic progress tracking</li>
+            <li><span class="plan-check">✓</span>Quizzes for free topics</li>
           </ul>
-          <button class="plan-btn btn-outline" onclick="openModal('register')">Get started free</button>
+          <button class="plan-btn plan-btn-outline" onclick="openModal('register')">Get started free</button>
         </div>
-        <div class="plan-card featured fade-in stagger-1">
-          <div class="plan-badge">Most popular</div>
+        <div class="plan-card pop">
+          <div class="plan-pop-label">Most popular</div>
           <div class="plan-name">Student</div>
-          <div class="plan-price">KSh 299<span>/month</span></div>
+          <div class="plan-price" id="price-student">KSh 299</div>
+          <div class="plan-period" id="period-student">/month</div>
           <ul class="plan-features">
-            <li>All 30+ topics unlocked</li>
-            <li>Unlimited AI tutor access</li>
-            <li>Full progress dashboard</li>
-            <li>All quizzes + results history</li>
-            <li>Leaderboard access</li>
-            <li>Offline mode (coming soon)</li>
+            <li><span class="plan-check">✓</span>All 30+ topics unlocked</li>
+            <li><span class="plan-check">✓</span>Unlimited AI tutor</li>
+            <li><span class="plan-check">✓</span>Full progress dashboard</li>
+            <li><span class="plan-check">✓</span>All quizzes + history</li>
+            <li><span class="plan-check">✓</span>Leaderboard access</li>
+            <li><span class="plan-check">✓</span>Offline mode (coming soon)</li>
           </ul>
-          <button class="plan-btn btn-solid" onclick="openModal('register')">Start 7-day free trial</button>
+          <button class="plan-btn plan-btn-fill" onclick="openModal('register')">Start 7-day free trial</button>
         </div>
-        <div class="plan-card fade-in stagger-2">
+        <div class="plan-card">
           <div class="plan-name">School</div>
-          <div class="plan-price">KSh 4,999<span>/month</span></div>
+          <div class="plan-price" id="price-school">KSh 4,999</div>
+          <div class="plan-period" id="period-school">/month · 50 students</div>
           <ul class="plan-features">
-            <li>Up to 50 student accounts</li>
-            <li>Teacher dashboard</li>
-            <li>Class progress reports</li>
-            <li>Parent portal</li>
-            <li>Priority support</li>
-            <li>Custom school branding</li>
+            <li><span class="plan-check">✓</span>50 student accounts</li>
+            <li><span class="plan-check">✓</span>Teacher dashboard</li>
+            <li><span class="plan-check">✓</span>Class progress reports</li>
+            <li><span class="plan-check">✓</span>Parent portal access</li>
+            <li><span class="plan-check">✓</span>Priority support</li>
+            <li><span class="plan-check">✓</span>Custom school branding</li>
           </ul>
-          <button class="plan-btn btn-outline" onclick="showToast('We will reach out to you shortly!')">Contact us</button>
+          <button class="plan-btn plan-btn-outline" onclick="showToast('Our team will reach out to you shortly!')">Contact us</button>
         </div>
       </div>
     </div>
@@ -583,321 +810,443 @@ footer{background:var(--ink);color:rgba(255,255,255,0.6);padding:4rem 2rem 2rem}
 </div>
 
 <!-- AUTH MODAL -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
-  <div class="modal" style="position:relative">
+<div class="modal-overlay" id="modal-overlay" onclick="closeOutside(event)">
+  <div class="modal">
     <button class="modal-close" onclick="closeModal()">×</button>
+    <!-- Login -->
     <div id="modal-login">
-      <h2>Welcome back</h2>
-      <p>Sign in to continue your learning journey</p>
-      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" id="login-email"/></div>
-      <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" id="login-pass"/></div>
+      <div class="modal-title">Welcome back</div>
+      <div class="modal-sub">Sign in to continue your learning journey</div>
+      <div class="form-grp"><label>Email</label><input type="email" id="login-email" placeholder="your@email.com"/></div>
+      <div class="form-grp"><label>Password</label><input type="password" id="login-pass" placeholder="••••••••"/></div>
       <button class="form-submit" onclick="handleLogin()">Sign in</button>
       <div class="form-switch">Don't have an account? <a onclick="switchModal('register')">Sign up free</a></div>
     </div>
+    <!-- Register -->
     <div id="modal-register" style="display:none">
-      <h2>Join Elimu Digital</h2>
-      <p>Start learning CBC for free today</p>
-      <div class="form-group"><label>Full name</label><input type="text" placeholder="e.g. Wanjiku Kamau" id="reg-name"/></div>
-      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" id="reg-email"/></div>
-      <div class="form-group"><label>Grade</label>
+      <div class="modal-title">Join Soma</div>
+      <div class="modal-sub">Start learning CBC for free today</div>
+      <div class="form-grp"><label>Full name</label><input type="text" id="reg-name" placeholder="e.g. Wanjiku Kamau"/></div>
+      <div class="form-grp"><label>Email</label><input type="email" id="reg-email" placeholder="your@email.com"/></div>
+      <div class="form-grp"><label>Grade</label>
         <select id="reg-grade"><option value="7">Grade 7</option><option value="8">Grade 8</option><option value="9" selected>Grade 9</option></select>
       </div>
-      <div class="form-group"><label>Password</label><input type="password" placeholder="Min 8 characters" id="reg-pass"/></div>
+      <div class="form-grp"><label>Password</label><input type="password" id="reg-pass" placeholder="Min 8 characters"/></div>
       <button class="form-submit" onclick="handleRegister()">Create free account</button>
       <div class="form-switch">Already have an account? <a onclick="switchModal('login')">Sign in</a></div>
     </div>
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// ── DATA ──
+// ══════════════════════════════
+// DATA
+// ══════════════════════════════
 const curriculum = {
   Mathematics:[
-    {grade:7,title:"Whole numbers & place value",summary:"Understanding millions, billions, rounding off and number patterns in real-life contexts.",example:"4,567,890 — the digit 5 is in the hundred-thousands place. Round 3,456 to the nearest hundred → 3,500.",quiz:{q:"What is 6,789 rounded to the nearest thousand?",opts:["6,000","7,000","6,800","6,700"],ans:1}},
-    {grade:7,title:"Fractions & decimals",summary:"Adding, subtracting, multiplying and dividing fractions and decimals. Converting between them.",example:"3/4 = 0.75. To add 1/2 + 1/3 → common denominator → 3/6 + 2/6 = 5/6.",quiz:{q:"What is 1/4 as a decimal?",opts:["0.14","0.25","0.4","2.5"],ans:1}},
-    {grade:7,title:"Algebra basics",summary:"Using letters to represent unknown values. Solving simple one-step and two-step equations.",example:"Solve 2x + 3 = 11. Subtract 3 → 2x = 8. Divide by 2 → x = 4.",quiz:{q:"Solve: x + 5 = 12",opts:["x = 17","x = 7","x = 6","x = 5"],ans:1}},
-    {grade:8,title:"Linear equations & inequalities",summary:"Solving equations with one variable and representing inequalities on a number line.",example:"3x - 6 = 9 → 3x = 15 → x = 5. Inequality: 2x > 8 → x > 4.",quiz:{q:"Solve: 3x - 6 = 9",opts:["x = 1","x = 3","x = 5","x = 9"],ans:2}},
-    {grade:8,title:"Geometry: angles & triangles",summary:"Properties of triangles, types of angles, Pythagoras theorem, area and perimeter calculations.",example:"Pythagoras: a² + b² = c². If a=3, b=4 → c=√25 = 5.",quiz:{q:"In a right triangle with sides 5 and 12, what is the hypotenuse?",opts:["13","14","17","7"],ans:0}},
-    {grade:8,title:"Statistics & data handling",summary:"Mean, median, mode, range. Reading and interpreting bar graphs, pie charts and frequency tables.",example:"Data: 3,5,7,7,8. Mean=6, Mode=7, Median=7, Range=5.",quiz:{q:"What is the median of: 2, 4, 6, 8, 10?",opts:["4","5","6","8"],ans:2}},
-    {grade:9,title:"Quadratic equations",summary:"Solving by factoring, completing the square, and using the quadratic formula ax²+bx+c=0.",example:"x²+5x+6=0 → (x+2)(x+3)=0 → x=-2 or x=-3.",quiz:{q:"Factorize: x² + 5x + 6",opts:["(x+1)(x+6)","(x+2)(x+3)","(x-2)(x-3)","(x+3)(x+2)"],ans:1}},
-    {grade:9,title:"Probability",summary:"Experimental and theoretical probability. Tree diagrams, sample spaces and combined events.",example:"P(heads) = 1/2. P(rolling a 3) = 1/6.",quiz:{q:"A die is rolled. What is P(even number)?",opts:["1/6","1/3","1/2","2/3"],ans:2}},
-    {grade:9,title:"Trigonometry",summary:"Sine, cosine and tangent ratios in right-angled triangles. SOH-CAH-TOA.",example:"sin(θ) = Opposite/Hypotenuse. If opp=3, hyp=5, sin(θ)=0.6.",quiz:{q:"What does TOA represent?",opts:["Tan = Adjacent/Opposite","Tan = Opposite/Adjacent","Tan = Opposite/Area","Top Over Angle"],ans:1}},
-    {grade:9,title:"Similarity & congruence",summary:"Conditions for similarity and congruence of triangles. Scale factors and applications.",example:"Two triangles are similar if angles are equal. Scale factor 1:2 means all sides double.",quiz:{q:"Two triangles are congruent if they have...",opts:["Same shape only","Same size only","Same shape and size","Same area"],ans:2}},
+    {grade:7,title:"Whole numbers & place value",summary:"Understanding millions, billions, rounding off and number patterns in real-life Kenyan contexts.",example:"4,567,890 — the digit 5 is in the hundred-thousands place.\nRound 3,456 to the nearest hundred → 3,500.",quiz:{q:"What is 6,789 rounded to the nearest thousand?",opts:["6,000","7,000","6,800","6,700"],ans:1}},
+    {grade:7,title:"Fractions & decimals",summary:"Adding, subtracting, multiplying and dividing fractions and decimals. Converting between forms.",example:"3/4 = 0.75\nTo add 1/2 + 1/3: common denominator → 3/6 + 2/6 = 5/6",quiz:{q:"What is 1/4 as a decimal?",opts:["0.14","0.25","0.4","2.5"],ans:1}},
+    {grade:7,title:"Algebra basics",summary:"Using letters to represent unknowns. Solving simple one-step and two-step equations.",example:"Solve: 2x + 3 = 11\nSubtract 3: 2x = 8\nDivide by 2: x = 4",quiz:{q:"Solve: x + 5 = 12",opts:["x = 17","x = 7","x = 6","x = 5"],ans:1}},
+    {grade:8,title:"Linear equations & inequalities",summary:"Solving equations with one variable. Representing inequalities on a number line.",example:"3x − 6 = 9 → 3x = 15 → x = 5\nInequality: 2x > 8 → x > 4",quiz:{q:"Solve: 3x − 6 = 9",opts:["x = 1","x = 3","x = 5","x = 9"],ans:2}},
+    {grade:8,title:"Geometry: angles & triangles",summary:"Properties of triangles, types of angles, Pythagoras theorem, area and perimeter.",example:"Pythagoras: a² + b² = c²\nIf a = 3, b = 4 → c = √25 = 5",quiz:{q:"In a right triangle with sides 5 and 12, what is the hypotenuse?",opts:["13","14","17","7"],ans:0}},
+    {grade:8,title:"Statistics & data handling",summary:"Mean, median, mode, range. Bar graphs, pie charts, frequency tables.",example:"Data: 3, 5, 7, 7, 8\nMean = 6, Mode = 7, Median = 7, Range = 5",quiz:{q:"What is the median of: 2, 4, 6, 8, 10?",opts:["4","5","6","8"],ans:2}},
+    {grade:9,title:"Quadratic equations",summary:"Solving by factoring, completing the square, and the quadratic formula ax²+bx+c=0.",example:"x² + 5x + 6 = 0\n→ (x+2)(x+3) = 0\n→ x = −2 or x = −3",quiz:{q:"Factorize: x² + 5x + 6",opts:["(x+1)(x+6)","(x+2)(x+3)","(x−2)(x−3)","(x+3)(x+2)"],ans:1}},
+    {grade:9,title:"Probability",summary:"Experimental and theoretical probability. Tree diagrams and combined events.",example:"P(heads) = 1/2\nP(rolling a 3) = 1/6",quiz:{q:"A die is rolled. What is P(even number)?",opts:["1/6","1/3","1/2","2/3"],ans:2}},
+    {grade:9,title:"Trigonometry",summary:"Sine, cosine and tangent ratios in right triangles. SOH-CAH-TOA.",example:"sin(θ) = Opposite/Hypotenuse\nIf opposite=3, hypotenuse=5 → sin(θ) = 0.6",quiz:{q:"What does TOA represent?",opts:["Tan = Adjacent/Opposite","Tan = Opposite/Adjacent","Tan = Opposite/Area","Top Over Angle"],ans:1}},
+    {grade:9,title:"Similarity & congruence",summary:"Conditions for similarity and congruence of triangles. Scale factors and applications.",example:"Two triangles are similar if all angles are equal.\nScale factor 1:2 → all sides double.",quiz:{q:"Two triangles are congruent if they have...",opts:["Same shape only","Same size only","Same shape AND size","Same area"],ans:2}},
   ],
   English:[
-    {grade:7,title:"Reading comprehension",summary:"Understanding main ideas, supporting details, making inferences and vocabulary in context.",example:"Main idea: the sentence that summarises the whole passage. Inference: using clues to figure out what isn't directly stated.",quiz:{q:"What is 'inference' in reading?",opts:["Copying the text","Using clues to understand hidden meaning","Summarising the passage","Finding the title"],ans:1}},
-    {grade:7,title:"Grammar: parts of speech",summary:"Nouns, verbs, adjectives, adverbs, pronouns, prepositions, conjunctions and interjections.",example:"'The tall girl ran quickly.' — tall = adjective, ran = verb, quickly = adverb.",quiz:{q:"What part of speech is 'beautiful' in: 'She wore a beautiful dress'?",opts:["Noun","Verb","Adjective","Adverb"],ans:2}},
-    {grade:8,title:"Essay writing",summary:"Structure of a good essay: introduction, body paragraphs and conclusion. Writing a strong thesis.",example:"Intro: 'Education is important. This essay discusses three reasons why...' Body: each paragraph = one reason. Conclusion: summarise.",quiz:{q:"Which part of an essay presents the main argument?",opts:["Title","Introduction","Body","Conclusion"],ans:1}},
-    {grade:8,title:"Literature: prose & poetry",summary:"Analysing stories and poems — themes, characters, setting, mood and literary devices.",example:"Metaphor: 'Life is a journey.' Simile: 'She ran like the wind.' Personification: 'The sun smiled.'",quiz:{q:"'The wind whispered secrets' is an example of...",opts:["Simile","Metaphor","Personification","Hyperbole"],ans:2}},
-    {grade:9,title:"Formal & informal writing",summary:"Letters, reports, emails and speeches. Recognising and applying formal vs informal tone.",example:"Formal: 'Dear Sir/Madam, I am writing to formally request...' Informal: 'Hey, just wanted to let you know...'",quiz:{q:"Which is appropriate for a formal letter?",opts:["Hey, how's it going?","I am writing to formally request...","What's up!","Yo check this out"],ans:1}},
-    {grade:9,title:"Oral skills & debates",summary:"Presentations, debates, discussions. Active listening, responding effectively and structuring arguments.",example:"In a debate: acknowledge the other side's point before refuting it — this shows confidence and critical thinking.",quiz:{q:"What is the main purpose of active listening?",opts:["Wait for your turn","Fully understand what's being said","Memorise the speaker's words","Take notes only"],ans:1}},
+    {grade:7,title:"Reading comprehension",summary:"Understanding main ideas, supporting details, making inferences and vocabulary in context.",example:"Main idea: the sentence summarising the whole passage.\nInference: using clues to figure out what isn't stated directly.",quiz:{q:"What is 'inference' in reading?",opts:["Copying the text","Using clues to understand hidden meaning","Summarising the passage","Finding the title"],ans:1}},
+    {grade:7,title:"Grammar: parts of speech",summary:"Nouns, verbs, adjectives, adverbs, pronouns, prepositions, conjunctions and interjections.",example:"'The tall girl ran quickly.'\n— tall = adjective, ran = verb, quickly = adverb",quiz:{q:"What part of speech is 'beautiful' in: 'She wore a beautiful dress'?",opts:["Noun","Verb","Adjective","Adverb"],ans:2}},
+    {grade:8,title:"Essay writing",summary:"Structure: introduction, body paragraphs and conclusion. Writing a strong thesis statement.",example:"Intro: 'Education is important. This essay discusses three reasons why...'\nBody: each paragraph = one reason. Conclusion: summarise.",quiz:{q:"Which part of an essay presents the main argument?",opts:["Title","Introduction","Body","Conclusion"],ans:1}},
+    {grade:8,title:"Literature: prose & poetry",summary:"Analysing stories and poems — themes, characters, setting, mood and literary devices.",example:"Metaphor: 'Life is a journey.'\nSimile: 'She ran like the wind.'\nPersonification: 'The sun smiled.'",quiz:{q:"'The wind whispered secrets' is an example of...",opts:["Simile","Metaphor","Personification","Hyperbole"],ans:2}},
+    {grade:9,title:"Formal & informal writing",summary:"Letters, reports, emails, speeches. Recognising and applying formal vs informal tone.",example:"Formal: 'Dear Sir/Madam, I am writing to formally request...'\nInformal: 'Hey, just wanted to let you know...'",quiz:{q:"Which is appropriate for a formal letter?",opts:["Hey, how's it going?","I am writing to formally request...","What's up!","Yo check this out"],ans:1}},
+    {grade:9,title:"Oral skills & debates",summary:"Presentations, debates, discussions. Active listening, responding and structuring arguments.",example:"In a debate: acknowledge the other side's point before refuting — shows critical thinking.",quiz:{q:"What is the main purpose of active listening?",opts:["Wait for your turn","Fully understand what's being said","Memorise the speaker's words","Take notes only"],ans:1}},
   ],
   Kiswahili:[
-    {grade:7,title:"Sarufi: Nomino na Vitenzi",summary:"Aina za nomino, jinsi ya kuunda vitenzi na kuzitumia katika sentensi sahihi za Kiswahili.",example:"Nomino: mtoto, mti, nyumba. Kitenzi: kukimbia, kula, kusoma. Sentensi: Mtoto anasoma kitabu.",quiz:{q:"Neno gani ni kitenzi?",opts:["Mwalimu","Shule","Kusoma","Dawati"],ans:2}},
-    {grade:8,title:"Insha na Muundo wake",summary:"Jinsi ya kuandika insha yenye utangulizi mzuri, kiini chenye hoja na hitimisho la kufaa.",example:"Utangulizi: 'Elimu ni muhimu sana. Katika insha hii, nitaeleza sababu tatu za umuhimu wake...'",quiz:{q:"Sehemu gani ya insha hueleza mada kwa undani?",opts:["Utangulizi","Kiini","Hitimisho","Kichwa cha habari"],ans:1}},
-    {grade:9,title:"Fasihi: Hadithi na Mashairi",summary:"Kuchunguza maudhui, wahusika, mandhari, msuko na tamathali za usemi katika fasihi.",example:"Tashibiha: 'Alikimbia kama simba.' Tashihisi: 'Jua lilisimama angani.' Sitiari: 'Yeye ni simba wa vita.'",quiz:{q:"'Gari lililia barabani' ni tamathali gani?",opts:["Tashibiha","Tashihisi","Sitiari","Takriri"],ans:1}},
+    {grade:7,title:"Sarufi: Nomino na Vitenzi",summary:"Aina za nomino, jinsi ya kuunda vitenzi na kuzitumia katika sentensi sahihi za Kiswahili.",example:"Nomino: mtoto, mti, nyumba\nKitenzi: kukimbia, kula, kusoma\nSentensi: Mtoto anasoma kitabu.",quiz:{q:"Neno gani ni kitenzi?",opts:["Mwalimu","Shule","Kusoma","Dawati"],ans:2}},
+    {grade:8,title:"Insha na Muundo wake",summary:"Jinsi ya kuandika insha yenye utangulizi mzuri, kiini chenye hoja na hitimisho la kufaa.",example:"Utangulizi: 'Elimu ni muhimu. Katika insha hii, nitaeleza sababu tatu...'",quiz:{q:"Sehemu gani ya insha hueleza mada kwa undani?",opts:["Utangulizi","Kiini","Hitimisho","Kichwa cha habari"],ans:1}},
+    {grade:9,title:"Fasihi: Hadithi na Mashairi",summary:"Kuchunguza maudhui, wahusika, mandhari, msuko na tamathali za usemi.",example:"Tashibiha: 'Alikimbia kama simba.'\nTashihisi: 'Jua lilisimama angani.'\nSitiari: 'Yeye ni simba wa vita.'",quiz:{q:"'Gari lililia barabani' ni tamathali gani?",opts:["Tashibiha","Tashihisi","Sitiari","Takriri"],ans:1}},
   ],
   Science:[
-    {grade:7,title:"Cells: building blocks of life",summary:"Cell structure, plant vs animal cell differences, and functions of organelles like nucleus and mitochondria.",example:"Animal cell: no cell wall or chloroplasts. Plant cell: has both — chloroplasts make food from sunlight (photosynthesis).",quiz:{q:"Which organelle is the powerhouse of the cell?",opts:["Nucleus","Ribosome","Mitochondria","Vacuole"],ans:2}},
-    {grade:7,title:"Matter & its properties",summary:"The three states of matter, changes of state, types of mixtures and separation techniques.",example:"Filtration separates undissolved solids. Evaporation separates dissolved solids. Distillation purifies liquids.",quiz:{q:"Which method separates salt from water?",opts:["Filtration","Sieving","Evaporation","Decanting"],ans:2}},
-    {grade:8,title:"Reproduction in living things",summary:"Sexual and asexual reproduction in plants and animals. Fertilisation, development and growth.",example:"Asexual: budding in yeast. Sexual: sperm + egg = zygote. Plants: pollination → fertilisation → seed.",quiz:{q:"What is formed when a sperm and egg cell join?",opts:["Embryo","Zygote","Gamete","Spore"],ans:1}},
-    {grade:8,title:"Forces & motion",summary:"Types of forces, Newton's three laws, speed, velocity, acceleration and the effect of friction.",example:"Speed = Distance ÷ Time. A car travels 120km in 2hrs → speed = 60km/h.",quiz:{q:"What is the formula for speed?",opts:["Speed = Time × Distance","Speed = Distance ÷ Time","Speed = Distance + Time","Speed = Time ÷ Distance"],ans:1}},
-    {grade:9,title:"Chemical reactions & equations",summary:"Reactants and products, balancing chemical equations, types of reactions: combustion, decomposition, displacement.",example:"H₂ + O₂ → H₂O (unbalanced). Balanced: 2H₂ + O₂ → 2H₂O.",quiz:{q:"What are the starting substances in a chemical reaction called?",opts:["Products","Reactants","Compounds","Elements"],ans:1}},
-    {grade:9,title:"Genetics & heredity",summary:"DNA, genes, chromosomes. Dominant and recessive traits. Punnett squares and inheritance patterns.",example:"T (tall) is dominant over t (short). Tt × tt gives: 50% Tt (tall) and 50% tt (short).",quiz:{q:"Which represents a recessive allele?",opts:["T","t","TT","Both T and t"],ans:1}},
+    {grade:7,title:"Cells: building blocks of life",summary:"Cell structure, plant vs animal cell differences, and functions of organelles.",example:"Animal cell: no cell wall or chloroplasts.\nPlant cell: has both — chloroplasts make food via photosynthesis.",quiz:{q:"Which organelle is the powerhouse of the cell?",opts:["Nucleus","Ribosome","Mitochondria","Vacuole"],ans:2}},
+    {grade:7,title:"Matter & its properties",summary:"The three states of matter, changes of state, types of mixtures and separation techniques.",example:"Filtration → undissolved solids\nEvaporation → dissolved solids\nDistillation → purifying liquids",quiz:{q:"Which method separates salt from water?",opts:["Filtration","Sieving","Evaporation","Decanting"],ans:2}},
+    {grade:8,title:"Reproduction in living things",summary:"Sexual and asexual reproduction in plants and animals. Fertilisation, development, growth.",example:"Asexual: budding in yeast.\nSexual: sperm + egg = zygote.\nPlants: pollination → fertilisation → seed.",quiz:{q:"What is formed when a sperm and egg cell join?",opts:["Embryo","Zygote","Gamete","Spore"],ans:1}},
+    {grade:8,title:"Forces & motion",summary:"Types of forces, Newton's three laws, speed, velocity, acceleration and friction.",example:"Speed = Distance ÷ Time\nA car travels 120km in 2hrs → speed = 60km/h",quiz:{q:"What is the formula for speed?",opts:["Speed = Time × Distance","Speed = Distance ÷ Time","Speed = Distance + Time","Speed = Time ÷ Distance"],ans:1}},
+    {grade:9,title:"Chemical reactions & equations",summary:"Reactants and products, balancing equations, types of reactions: combustion, decomposition, displacement.",example:"H₂ + O₂ → H₂O (unbalanced)\nBalanced: 2H₂ + O₂ → 2H₂O",quiz:{q:"What are the starting substances in a chemical reaction called?",opts:["Products","Reactants","Compounds","Elements"],ans:1}},
+    {grade:9,title:"Genetics & heredity",summary:"DNA, genes, chromosomes. Dominant and recessive traits. Punnett squares.",example:"T (tall) dominant over t (short).\nTt × tt gives: 50% Tt (tall), 50% tt (short)",quiz:{q:"Which represents a recessive allele?",opts:["T","t","TT","Both T and t"],ans:1}},
   ],
   "Social Studies":[
-    {grade:7,title:"Kenya's physical geography",summary:"Major landforms, water bodies, climate zones and vegetation regions across Kenya.",example:"Kenya's features: Rift Valley, Mt. Kenya (5,199m), Lake Victoria, Lake Turkana. Climate zones: rainforest, savanna, semi-arid.",quiz:{q:"What is Kenya's highest mountain?",opts:["Mt. Kilimanjaro","Mt. Elgon","Mt. Kenya","Mt. Longonot"],ans:2}},
-    {grade:8,title:"Kenya's history & independence",summary:"Colonialism in Kenya, the independence struggle, key figures, and formation of the Kenyan nation.",example:"Jomo Kenyatta was Kenya's first president. Independence was gained from Britain on 12th December 1963.",quiz:{q:"When did Kenya gain independence?",opts:["1960","1961","1963","1965"],ans:2}},
-    {grade:9,title:"Governance & democracy",summary:"Kenya's 2010 Constitution, the three arms of government, devolution and citizens' rights and responsibilities.",example:"Three arms: Executive (President runs the country), Legislature (Parliament makes laws), Judiciary (courts interpret laws).",quiz:{q:"Which arm of government makes laws in Kenya?",opts:["Judiciary","Executive","Legislature","Cabinet"],ans:2}},
-    {grade:9,title:"Economic development",summary:"Economic activities, trade, natural resources, industrialisation and Kenya's sustainable development goals.",example:"Kenya's main exports: tea, coffee, cut flowers, and horticultural products. Tourism is also a key economic pillar.",quiz:{q:"What is Kenya's main export crop?",opts:["Coffee","Sugar","Tea","Maize"],ans:2}},
+    {grade:7,title:"Kenya's physical geography",summary:"Major landforms, water bodies, climate zones and vegetation regions across Kenya.",example:"Landforms: Rift Valley, Mt. Kenya (5,199m), Lake Victoria, Lake Turkana.\nClimate: rainforest, savanna, semi-arid zones.",quiz:{q:"What is Kenya's highest mountain?",opts:["Mt. Kilimanjaro","Mt. Elgon","Mt. Kenya","Mt. Longonot"],ans:2}},
+    {grade:8,title:"Kenya's history & independence",summary:"Colonialism, the independence struggle, key figures and formation of the Kenyan nation.",example:"Jomo Kenyatta was Kenya's first president.\nIndependence from Britain: 12th December 1963.",quiz:{q:"When did Kenya gain independence?",opts:["1960","1961","1963","1965"],ans:2}},
+    {grade:9,title:"Governance & democracy",summary:"Kenya's 2010 Constitution, three arms of government, devolution, citizens' rights and responsibilities.",example:"Three arms: Executive (President), Legislature (Parliament makes laws), Judiciary (interprets laws).",quiz:{q:"Which arm of government makes laws in Kenya?",opts:["Judiciary","Executive","Legislature","Cabinet"],ans:2}},
+    {grade:9,title:"Economic development",summary:"Economic activities, trade, natural resources, industrialisation and Kenya's development goals.",example:"Main exports: tea, coffee, cut flowers.\nTourism is a key economic pillar.\nSDGs guide Kenya's Vision 2030.",quiz:{q:"What is Kenya's main export crop?",opts:["Coffee","Sugar","Tea","Maize"],ans:2}},
   ]
 };
 
-// ── STATE ──
+// ══════════════════════════════
+// STATE
+// ══════════════════════════════
 let currentSubject = 'Mathematics';
-let currentLearnGrade = 7;
+let currentGrade = 7;
 let currentTopic = null;
 let completedTopics = new Set();
 let quizzesPassed = 0;
 let quizAnswered = false;
 let ltAiHistory = [];
 let currentUser = null;
+let annualBilling = false;
 
-// ── ROUTING ──
+const subjectEmojis = {Mathematics:'➕',English:'📖',Kiswahili:'🇰🇪',Science:'🔬','Social Studies':'🌍'};
+const letters = ['A','B','C','D'];
+
+// ══════════════════════════════
+// ROUTING
+// ══════════════════════════════
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   window.scrollTo(0,0);
   if(name==='learn') renderLearnPage();
-  if(name==='dashboard') updateDashboard();
+  if(name==='dashboard'){updateDashboard();setDashDate();}
 }
 
-// ── LEARN PAGE ──
+function scrollToFeatures(){
+  showPage('home');
+  setTimeout(()=>{
+    const el = document.getElementById('features');
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  },100);
+}
+
+// ══════════════════════════════
+// LEARN PAGE
+// ══════════════════════════════
 function renderLearnPage(){
-  renderLearnSubjects();
-  renderLearnTopics();
+  renderSubjectChips();
+  renderTopics();
 }
 
-function renderLearnSubjects(){
-  const c = document.getElementById('learn-subjects');
-  const emojis = {Mathematics:'➕',English:'📖',Kiswahili:'🇰🇪',Science:'🔬','Social Studies':'🌍'};
+function renderSubjectChips(){
+  const c = document.getElementById('learn-subject-chips');
   c.innerHTML = Object.keys(curriculum).map(s=>`
-    <div class="subject-card${s===currentSubject?' active':''}" onclick="setLearnSubject('${s}')">
-      <span class="subject-emoji">${emojis[s]}</span>
-      <div class="subject-name">${s}</div>
-      <div class="subject-count">${curriculum[s].length} topics</div>
+    <div class="subj-chip${s===currentSubject?' active':''}" onclick="setSubject('${s}')">
+      <span class="emoji">${subjectEmojis[s]}</span>${s}<span class="count">${curriculum[s].length}</span>
     </div>`).join('');
 }
 
-function setLearnSubject(s){
-  currentSubject=s;
-  renderLearnSubjects();
-  renderLearnTopics();
+function setSubject(s){
+  currentSubject = s;
+  renderSubjectChips();
+  renderTopics();
 }
 
-function setLearnGrade(g,btn){
-  currentLearnGrade=g;
-  document.querySelectorAll('.grade-pill').forEach(b=>b.classList.remove('active'));
+function setGrade(g, btn){
+  currentGrade = g;
+  document.querySelectorAll('.grade-tab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  renderLearnTopics();
+  renderTopics();
 }
 
-function renderLearnTopics(){
-  const topics = (curriculum[currentSubject]||[]).filter(t=>t.grade===currentLearnGrade);
-  const c = document.getElementById('learn-topics');
-  if(!topics.length){c.innerHTML='<div style="color:var(--ghost);font-size:14px;padding:1rem 0">No topics for this grade in this subject.</div>';return;}
-  const gclass = `g${currentLearnGrade}`;
+function renderTopics(){
+  const topics = (curriculum[currentSubject]||[]).filter(t=>t.grade===currentGrade);
+  const c = document.getElementById('learn-topics-grid');
+  if(!topics.length){
+    c.innerHTML=`<div style="color:var(--ghost);font-size:14px;padding:2rem 0;grid-column:1/-1">No topics found for this grade in ${currentSubject}.</div>`;
+    return;
+  }
   c.innerHTML = topics.map((t,i)=>{
     const key=`${currentSubject}-${t.grade}-${i}`;
     const done=completedTopics.has(key);
+    const gBadge = `badge-g${t.grade}`;
     return `<div class="topic-card${done?' done':''}" onclick="openLesson('${currentSubject}',${t.grade},${i})">
-      <div><div class="topic-card-title">${t.title}</div><div class="topic-card-sub">${t.summary.substring(0,60)}...</div></div>
-      <span class="topic-grade-badge ${gclass}">Gr ${t.grade}</span>
+      <div class="topic-num">${String(i+1).padStart(2,'0')}</div>
+      <div style="flex:1">
+        <div class="topic-card-title">${t.title}</div>
+        <div class="topic-card-sub">${t.summary.slice(0,64)}…</div>
+        <div class="topic-badge-row">
+          <span class="topic-badge ${gBadge}">Grade ${t.grade}</span>
+          ${done?'<span class="topic-badge badge-done">✓ Done</span>':''}
+        </div>
+      </div>
     </div>`;
   }).join('');
 }
 
-function openLesson(subj,grade,idx){
+function openLesson(subj, grade, idx){
   const topics = curriculum[subj].filter(x=>x.grade===grade);
   const t = topics[idx];
   currentTopic = {subj,grade,idx,key:`${subj}-${grade}-${idx}`,data:t};
-  // fill lesson
+
+  // Fill content
+  document.getElementById('lt-subject-tag').innerHTML = `${subjectEmojis[subj]} ${subj}`;
   document.getElementById('lt-title').textContent = t.title;
-  const badge = document.getElementById('lt-badge');
-  badge.textContent = `Grade ${grade}`;
-  badge.className = `topic-grade-badge g${grade}`;
-  document.getElementById('lt-subject').textContent = subj;
+  document.getElementById('lt-grade-pill').textContent = `Grade ${grade}`;
+  document.getElementById('lt-subj-pill').textContent = subj;
   document.getElementById('lt-summary').textContent = t.summary;
   document.getElementById('lt-example').textContent = t.example;
-  // quiz
-  quizAnswered=false;
-  document.getElementById('lt-quiz-result').style.display='none';
+
+  // Quiz
+  quizAnswered = false;
+  const qRes = document.getElementById('lt-quiz-result');
+  qRes.style.display = 'none';
+  qRes.className = 'quiz-result-bar';
   document.getElementById('lt-quiz-q').textContent = t.quiz.q;
   document.getElementById('lt-quiz-opts').innerHTML = t.quiz.opts.map((o,i)=>
-    `<button class="quiz-opt-btn" onclick="checkLessonQuiz(${i},${t.quiz.ans},this)">${o}</button>`).join('');
-  // sidebar
-  const allForSubj = curriculum[subj].filter(x=>x.grade===grade);
-  document.getElementById('lesson-sidebar-list').innerHTML = allForSubj.map((tt,i)=>{
+    `<button class="quiz-btn" onclick="checkQuiz(${i},${t.quiz.ans},this)">
+      <span class="quiz-btn-letter">${letters[i]}</span>${o}
+    </button>`).join('');
+
+  // Sidebar
+  const allTopics = curriculum[subj].filter(x=>x.grade===grade);
+  document.getElementById('lesson-sb-list').innerHTML = allTopics.map((tt,i)=>{
     const k=`${subj}-${grade}-${i}`;
-    return `<div class="sidebar-item${i===idx?' active':''}${completedTopics.has(k)?' done':''}" onclick="openLesson('${subj}',${grade},${i})">${tt.title}</div>`;
+    const done = completedTopics.has(k);
+    return `<div class="sb-item${i===idx?' active':''}${done?' done':''}" onclick="openLesson('${subj}',${grade},${i})">
+      <span>${tt.title}</span>
+      <span class="sb-item-check">${done?'✓':''}</span>
+    </div>`;
   }).join('');
-  // ai
-  ltAiHistory=[];
-  document.getElementById('lt-ai-chat').innerHTML='';
-  ltAddBot(`I'm your AI tutor for "${t.title}". Ask me anything — like "explain this in simpler words" or "give me another example".`);
-  document.getElementById('learn-browse').style.display='none';
-  document.getElementById('lesson-view').style.display='block';
+
+  // AI
+  ltAiHistory = [];
+  document.getElementById('lt-ai-chat').innerHTML = '';
+  addBotMsg(`I'm your Soma AI tutor for "${t.title}". Ask me anything — I'll explain using simple language and Kenyan examples. 🇰🇪`);
+
+  document.getElementById('learn-browse').style.display = 'none';
+  document.getElementById('lesson-view').style.display = 'block';
   window.scrollTo(0,0);
 }
 
 function closeLessonView(){
-  document.getElementById('learn-browse').style.display='block';
-  document.getElementById('lesson-view').style.display='none';
+  document.getElementById('learn-browse').style.display = 'block';
+  document.getElementById('lesson-view').style.display = 'none';
+  renderTopics();
 }
 
-function checkLessonQuiz(chosen,correct,btn){
+function checkQuiz(chosen, correct, btn){
   if(quizAnswered) return;
-  quizAnswered=true;
-  document.querySelectorAll('.quiz-opt-btn').forEach(b=>b.disabled=true);
+  quizAnswered = true;
+  document.querySelectorAll('.quiz-btn').forEach(b=>b.disabled=true);
   const res = document.getElementById('lt-quiz-result');
-  res.style.display='block';
+  res.style.display = 'flex';
   if(chosen===correct){
     btn.classList.add('correct');
-    res.className='quiz-result pass';
-    res.textContent='Correct! Well done.';
+    res.className = 'quiz-result-bar pass';
+    res.textContent = '✓ Correct! Well done — you understand this concept.';
     quizzesPassed++;
   } else {
     btn.classList.add('wrong');
-    document.querySelectorAll('.quiz-opt-btn')[correct].classList.add('correct');
-    res.className='quiz-result fail';
-    res.textContent='Not quite — the correct answer is highlighted. Review the lesson and try again!';
+    document.querySelectorAll('.quiz-btn')[correct].classList.add('correct');
+    res.className = 'quiz-result-bar fail';
+    res.textContent = '✗ Not quite — the correct answer is highlighted. Review the lesson and try again!';
   }
-  updateDashStats();
+  updateKPIs();
 }
 
-function markTopicDone(){
+function markDone(){
   if(currentTopic) completedTopics.add(currentTopic.key);
   showToast('Topic marked as complete! 🎉');
-  updateDashStats();
-  renderLearnTopics();
+  updateKPIs();
   setTimeout(closeLessonView, 800);
 }
 
-function ltAddBot(text,loading=false){
-  const c=document.getElementById('lt-ai-chat');
-  const d=document.createElement('div');
-  d.className='ai-bubble bot'+(loading?' loading':'');
-  d.textContent=text;
-  if(loading) d.id='lt-loading';
+// ══════════════════════════════
+// AI TUTOR
+// ══════════════════════════════
+function addBotMsg(text, isThinking=false){
+  const c = document.getElementById('lt-ai-chat');
+  const d = document.createElement('div');
+  d.className = 'ai-bubble bot' + (isThinking?' thinking':'');
+  d.textContent = text;
+  if(isThinking) d.id = 'ai-thinking';
   c.appendChild(d);
-  c.scrollTop=c.scrollHeight;
+  c.scrollTop = c.scrollHeight;
+}
+
+function quickAsk(q){
+  document.getElementById('lt-ai-input').value = q;
+  ltAskAI();
 }
 
 async function ltAskAI(){
-  const inp=document.getElementById('lt-ai-input');
-  const q=inp.value.trim();
-  if(!q||!currentTopic) return;
-  inp.value='';
-  const c=document.getElementById('lt-ai-chat');
-  const um=document.createElement('div');
-  um.className='ai-bubble user';
-  um.textContent=q;
+  const inp = document.getElementById('lt-ai-input');
+  const q = inp.value.trim();
+  if(!q || !currentTopic) return;
+  inp.value = '';
+
+  const c = document.getElementById('lt-ai-chat');
+  const um = document.createElement('div');
+  um.className = 'ai-bubble user';
+  um.textContent = q;
   c.appendChild(um);
-  c.scrollTop=c.scrollHeight;
-  ltAddBot('Thinking...', true);
-  ltAiHistory.push({role:'user',content:q});
-  try{
-    const t=currentTopic.data;
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+  c.scrollTop = c.scrollHeight;
+
+  ltAiHistory.push({role:'user', content:q});
+  addBotMsg('Thinking…', true);
+
+  try {
+    const t = currentTopic.data;
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
+      body: JSON.stringify({
         model:'claude-sonnet-4-20250514',
-        max_tokens:400,
-        system:`You are a friendly CBC tutor for a Kenyan Grade ${currentTopic.grade} student. Topic: "${t.title}" in ${currentTopic.subj}. Summary: ${t.summary}. Keep answers to 3-5 sentences. Use simple language. Use Kenyan examples. Be encouraging.`,
-        messages:ltAiHistory
+        max_tokens:500,
+        system:`You are Soma, a friendly AI tutor for Kenyan CBC students in Grade ${currentTopic.grade}. Current topic: "${t.title}" in ${currentTopic.subj}. Topic summary: ${t.summary}. Rules: (1) Keep answers to 3-5 sentences max. (2) Use simple, clear English. (3) Use Kenyan examples, names, places where possible. (4) Always be encouraging. (5) Never make the student feel bad for not knowing.`,
+        messages: ltAiHistory
       })
     });
-    const data=await res.json();
-    const reply=data.content.map(x=>x.text||'').join('');
-    document.getElementById('lt-loading')?.remove();
-    ltAiHistory.push({role:'assistant',content:reply});
-    ltAddBot(reply);
-  }catch(e){
-    document.getElementById('lt-loading')?.remove();
-    ltAddBot('Could not connect. Check your internet and try again.');
+    const data = await res.json();
+    const reply = data.content.map(x=>x.text||'').join('');
+    document.getElementById('ai-thinking')?.remove();
+    ltAiHistory.push({role:'assistant', content:reply});
+    addBotMsg(reply);
+  } catch(e) {
+    document.getElementById('ai-thinking')?.remove();
+    addBotMsg('Could not connect to AI. Please check your internet and try again.');
   }
 }
 
-// ── DASHBOARD ──
-function updateDashStats(){
-  const done=completedTopics.size;
-  const total=Object.values(curriculum).flat().length;
-  const pct=Math.round(done/total*100);
-  document.getElementById('ds-done').textContent=done;
-  document.getElementById('ds-quiz').textContent=quizzesPassed;
-  document.getElementById('ds-pct').textContent=pct+'%';
-  document.getElementById('ds-done-bar').style.width=Math.round(done/total*100)+'%';
-  document.getElementById('ds-pct-bar').style.width=pct+'%';
+// ══════════════════════════════
+// DASHBOARD
+// ══════════════════════════════
+function updateKPIs(){
+  const done = completedTopics.size;
+  const total = Object.values(curriculum).flat().length;
+  const pct = Math.round(done/total*100);
+  document.getElementById('kpi-topics-val').textContent = done;
+  document.getElementById('kpi-quiz-val').textContent = quizzesPassed;
+  document.getElementById('kpi-pct-val').textContent = pct+'%';
+  document.getElementById('kpi-topics').style.setProperty('--progress', done/total);
 }
 
-function updateDashboard(){updateDashStats();}
-function dashTab(t){document.querySelectorAll('.dash-nav-item').forEach(el=>el.classList.remove('active'));event.target.closest('.dash-nav-item').classList.add('active');}
+function updateDashboard(){
+  updateKPIs();
+  renderDashSubjectBars();
+  renderDashRecent();
+}
 
-// ── AUTH ──
+function renderDashSubjectBars(){
+  const c = document.getElementById('dash-subject-bars');
+  c.innerHTML = Object.keys(curriculum).map(subj=>{
+    const topics = curriculum[subj];
+    const total = topics.length;
+    const done = topics.filter((_,i)=>completedTopics.has(`${subj}-${topics[i].grade}-${i}`)).length;
+    // rough count
+    const pct = Math.round(done/total*100);
+    return `<div class="progress-bar-row">
+      <div class="pbr-label"><span>${subjectEmojis[subj]} ${subj}</span><span>${pct}%</span></div>
+      <div class="pbr-bar"><div class="pbr-fill" style="width:${pct}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+function renderDashRecent(){
+  const c = document.getElementById('dash-recent-list');
+  const done = [...completedTopics];
+  if(!done.length){
+    c.innerHTML=`<div style="font-size:13px;color:var(--ghost);padding:1rem 0;text-align:center">No topics started yet.<br/>Head to the Learn page to begin!</div>`;
+    return;
+  }
+  c.innerHTML = done.slice(-5).reverse().map(key=>{
+    const [subj,grade,idx] = key.split('-');
+    const topics = (curriculum[subj]||[]).filter(t=>t.grade===parseInt(grade));
+    const t = topics[parseInt(idx)];
+    if(!t) return '';
+    return `<div class="recent-topic-item">
+      <div class="rti-info">
+        <div class="rti-name">${t.title}</div>
+        <div class="rti-sub">${subj} · Grade ${grade}</div>
+      </div>
+      <span class="rti-action" onclick="openLesson('${subj}',${grade},${idx})">Review →</span>
+    </div>`;
+  }).join('');
+}
+
+function setDashDate(){
+  const d = document.getElementById('dash-date');
+  if(d) d.textContent = new Date().toLocaleDateString('en-KE',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+}
+
+function setDashTab(el,tab){
+  document.querySelectorAll('.dash-nav-item').forEach(i=>i.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ══════════════════════════════
+// PRICING TOGGLE
+// ══════════════════════════════
+function toggleBilling(){
+  annualBilling = !annualBilling;
+  document.getElementById('billing-toggle').className = 'toggle-switch' + (annualBilling?' annual':'');
+  document.getElementById('price-student').textContent = annualBilling ? 'KSh 2,490' : 'KSh 299';
+  document.getElementById('period-student').textContent = annualBilling ? '/year (save KSh 1,098)' : '/month';
+  document.getElementById('price-school').textContent = annualBilling ? 'KSh 41,990' : 'KSh 4,999';
+  document.getElementById('period-school').textContent = annualBilling ? '/year · 50 students' : '/month · 50 students';
+}
+
+// ══════════════════════════════
+// AUTH
+// ══════════════════════════════
 function openModal(type){
   document.getElementById('modal-overlay').classList.add('open');
   switchModal(type);
 }
 function closeModal(){document.getElementById('modal-overlay').classList.remove('open');}
-function closeModalOutside(e){if(e.target===document.getElementById('modal-overlay')) closeModal();}
+function closeOutside(e){if(e.target===document.getElementById('modal-overlay')) closeModal();}
 function switchModal(type){
-  document.getElementById('modal-login').style.display=type==='login'?'block':'none';
-  document.getElementById('modal-register').style.display=type==='register'?'block':'none';
+  document.getElementById('modal-login').style.display = type==='login'?'block':'none';
+  document.getElementById('modal-register').style.display = type==='register'?'block':'none';
 }
 
 function handleLogin(){
-  const email=document.getElementById('login-email').value;
+  const email = document.getElementById('login-email').value;
   if(!email){showToast('Please enter your email');return;}
-  currentUser={name:'Student',email,grade:9};
+  currentUser = {name:'Student',email};
   closeModal();
   showToast('Welcome back! 👋');
   showPage('dashboard');
 }
 
 function handleRegister(){
-  const name=document.getElementById('reg-name').value;
-  const email=document.getElementById('reg-email').value;
-  const grade=document.getElementById('reg-grade').value;
+  const name = document.getElementById('reg-name').value;
+  const email = document.getElementById('reg-email').value;
   if(!name||!email){showToast('Please fill in all fields');return;}
-  currentUser={name,email,grade:parseInt(grade)};
-  document.querySelector('.dash-greeting h2').textContent=`Good morning, ${name} 👋`;
+  currentUser = {name,email,grade:document.getElementById('reg-grade').value};
+  document.getElementById('dash-name').textContent = name.split(' ')[0];
   closeModal();
-  showToast(`Welcome to Elimu Digital, ${name}! 🎓`);
+  showToast(`Welcome to Soma, ${name.split(' ')[0]}! 🎓`);
   showPage('dashboard');
 }
 
-// ── UTILS ──
+// ══════════════════════════════
+// UTILS
+// ══════════════════════════════
 function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;
+  const t = document.getElementById('toast');
+  t.textContent = msg;
   t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3500);
 }
 
-function toggleMobileMenu(){/* extend later */}
+function toggleMenu(){/* mobile nav — extend */}
 
-// ── SCROLL ANIMATIONS ──
-const observer=new IntersectionObserver(entries=>{
+// ══════════════════════════════
+// SCROLL ANIMATIONS
+// ══════════════════════════════
+const revealObserver = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible')});
-},{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 
-// ── INIT ──
+// ══════════════════════════════
+// INIT
+// ══════════════════════════════
 renderLearnPage();
+setDashDate();
 </script>
 </body>
 </html>
