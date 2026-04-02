@@ -315,6 +315,6 @@ Free to use, modify, and distribute. If you build something with this, we'd love
 
 <br/>
 
-[![Star this repo](https://img.shields.io/github/stars/your-org/elimu-digital?style=social)](https://github.com/your-org/elimu-digital)
+[![Star this repo](https://img.shields.io/github/stars/edwinnyandika/elimu-digital?style=social)](https://github.com/edwinnyandika/elimu-digital)
 
 </div>
